@@ -1,0 +1,1206 @@
+<title>AluminAiry</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* ============ tokens ============ */
+:root{
+  --paper:#F3F4F5; --paper2:#E6E9EC; --plate:linear-gradient(100deg,#D9DEE3 0%,#E9ECEF 28%,#DADFE4 55%,#E7EAED 80%,#D7DCE1 100%);
+  --ink:#111820; --ink2:#3A4652; --mute:#6B7683;
+  --al:#B9C1C9; --al2:#8E99A4;
+  --rule:#C6CDD3; --rule2:#111820;
+  --blue:#1C3E6C; --ely:#D9E4F0;
+  --orange:#2166DB; --orange-ink:#1A55BA;
+  --btn:#111820; --btn-ink:#F3F4F5;
+  --foot:#111820; --foot-ink:#E6E9EC; --foot-mute:#8E99A4; --foot-rule:#2B3540;
+  --logo-paper:#FFFFFF;
+}
+
+/* ============ base ============ */
+*,*::before,*::after{box-sizing:border-box}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}}
+html{color-scheme:light}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Source Serif 4",Georgia,"Times New Roman",serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased}
+[hidden]{display:none!important}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+.ui{font-family:"Archivo","Helvetica Neue",Arial,sans-serif}
+h1,h2,h3,h4{margin:0;font-family:"Archivo","Helvetica Neue",Arial,sans-serif;text-wrap:balance}
+h1{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(50px,8vw,118px);line-height:.88;letter-spacing:-.015em;overflow-wrap:anywhere}
+@media (max-width:520px){h1,.hero.sub h1{font-size:8.6vw;letter-spacing:-.02em}}
+h2{font-stretch:125%;font-weight:700;font-size:clamp(30px,3.6vw,50px);line-height:1;letter-spacing:-.01em}
+h3{font-stretch:100%;font-weight:600;font-size:22px;line-height:1.2}
+h4{font-weight:600;font-size:17px;line-height:1.25}
+p{margin:0}
+.prose{max-width:60ch}
+.prose p+p{margin-top:1em}
+.lead{font-size:clamp(19px,1.6vw,23px);line-height:1.45;max-width:52ch}
+.small{font-family:"Archivo",sans-serif;font-size:14px;line-height:1.5;color:var(--mute)}
+.doc{max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,60px)}
+.arrow{color:var(--orange)}
+.link{font-family:"Archivo",sans-serif;font-weight:600;font-size:15px;text-decoration:none;border-bottom:2px solid var(--orange);padding-bottom:1px}
+.link:hover{color:var(--orange-ink)}
+
+/* ============ header ============ */
+.top{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:2px solid var(--rule2)}
+.top .doc{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+.wm{display:flex;align-items:center;text-decoration:none}
+.wm img{width:180px;height:auto;display:block}
+@media (max-width:480px){.wm img{width:150px}}
+nav.nav{display:flex;align-items:center;gap:2px;font-family:"Archivo",sans-serif}
+nav.nav a{font-weight:500;font-size:15px;text-decoration:none;padding:6px 12px;color:var(--ink2);white-space:nowrap;border-bottom:2px solid transparent}
+nav.nav a:hover{color:var(--ink)}
+nav.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--orange)}
+nav.nav a.cta{margin-left:12px;background:var(--btn);color:var(--btn-ink);padding:9px 16px;font-weight:600;border-bottom:0}
+nav.nav a.cta:hover{background:var(--orange);color:#fff}
+.burger{display:none;font-family:"Archivo",sans-serif;font-weight:600;font-size:14px;background:none;border:2px solid var(--ink);color:var(--ink);padding:7px 12px;cursor:pointer}
+@media (max-width:1000px){
+  .burger{display:block}
+  nav.nav{display:none;position:absolute;left:0;right:0;top:64px;background:var(--paper);border-bottom:2px solid var(--rule2);flex-direction:column;align-items:stretch;padding:8px 20px 16px}
+  nav.nav.open{display:flex}
+  nav.nav a{padding:12px 4px;border-bottom:1px solid var(--rule);font-size:17px}
+  nav.nav a[aria-current="page"]{border-bottom-color:var(--orange)}
+  nav.nav a.cta{margin:12px 0 0;text-align:center}
+}
+
+/* ============ buttons ============ */
+.btns{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center}
+.btn{font-family:"Archivo",sans-serif;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;padding:14px 20px;background:var(--btn);color:var(--btn-ink);border:2px solid var(--btn);cursor:pointer;line-height:1}
+.btn:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:var(--paper)}
+
+/* ============ hero ============ */
+.hero{padding:clamp(36px,5vw,72px) 0 0}
+.hero h1{margin-bottom:clamp(28px,4vw,52px)}
+.hero .row{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,5fr) minmax(0,2fr);gap:clamp(24px,4vw,56px);align-items:start}
+.hero .intro{display:grid;gap:26px;padding-top:6px}
+.hero .toc{font-family:"Archivo",sans-serif;font-size:13.5px;display:grid;gap:0;border-top:2px solid var(--rule2);align-self:start}
+.hero .toc a{display:grid;grid-template-columns:28px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink2)}
+.hero .toc a b{font-weight:700;color:var(--orange-ink)}
+.hero .toc a:hover{color:var(--ink)}
+.hero .toc .h{padding:10px 0 6px;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+@media (max-width:1000px){.hero .row{grid-template-columns:1fr 1fr}.hero .toc{display:none}}
+@media (max-width:700px){.hero .row{grid-template-columns:1fr}}
+.hero.sub{padding-bottom:clamp(28px,3.5vw,48px)}
+.hero.sub h1{font-size:clamp(40px,6.2vw,92px)}
+.hero.sub .row{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}
+@media (max-width:800px){.hero.sub .row{grid-template-columns:1fr}}
+
+/* ============ photos ============ */
+.fig{margin:0;display:grid;gap:10px}
+.fig img{width:100%;height:100%;object-fit:cover;background:var(--paper2)}
+.fig figcaption{font-family:"Archivo",sans-serif;font-size:13px;line-height:1.45;color:var(--mute)}
+.fig figcaption b{font-weight:600;color:var(--ink2)}
+.fig.r43 img{aspect-ratio:4/3}
+.fig.r32 img{aspect-ratio:3/2}
+.fig.r169 img{aspect-ratio:16/9}
+.fig.r11 img{aspect-ratio:1/1}
+.fig.nat img{aspect-ratio:auto;height:auto;object-fit:contain;background:#fff;border:1px solid var(--rule)}
+.duo{background:var(--blue)}
+.duo img{filter:grayscale(1) contrast(1.12);mix-blend-mode:luminosity}
+
+/* ============ data plate ============ */
+.plate{background:var(--plate);border-top:2px solid var(--rule2);border-bottom:2px solid var(--rule2);margin-top:clamp(40px,6vw,80px)}
+.plate .doc{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.plate .doc > div{padding:22px 24px 22px 0;margin-right:24px;border-right:1px solid var(--al2);display:grid;gap:8px;align-content:start}
+.plate .doc > div:last-child{border-right:0;margin-right:0}
+.plate dt{font-family:"Archivo",sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2)}
+.plate dd{margin:0;font-family:"Archivo",sans-serif;font-stretch:118%;font-weight:800;font-size:clamp(24px,2.4vw,34px);line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.plate dd small{display:block;font-stretch:100%;font-weight:400;font-size:13px;color:var(--mute);margin-top:5px;letter-spacing:0}
+.plate.four .doc{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.plate .doc,.plate.four .doc{grid-template-columns:1fr 1fr}.plate .doc > div:nth-child(2n){border-right:0;margin-right:0}.plate .doc > div{border-bottom:1px solid var(--al2)}}
+@media (max-width:520px){.plate .doc,.plate.four .doc{grid-template-columns:1fr}.plate .doc > div{border-right:0;margin-right:0}}
+
+/* ============ manual sections ============ */
+.s{display:grid;grid-template-columns:200px minmax(0,1fr);gap:clamp(24px,4vw,64px);padding:clamp(40px,5vw,68px) 0;border-top:2px solid var(--rule2)}
+.s:first-of-type{border-top:0}
+.s .m{align-self:start;position:sticky;top:84px;display:grid;gap:6px;font-family:"Archivo",sans-serif}
+.s .m .n{font-stretch:125%;font-weight:800;font-size:40px;line-height:1;color:var(--orange);letter-spacing:-.02em}
+.s .m .t{font-weight:600;font-size:13px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink2)}
+.s .m .sub{font-size:13px;color:var(--mute);max-width:20ch;line-height:1.4}
+.s .c{display:grid;gap:clamp(28px,3.5vw,48px);min-width:0}
+.s h2{max-width:22ch}
+@media (max-width:860px){.s{grid-template-columns:1fr;gap:24px}.s .m{position:static;grid-template-columns:auto 1fr;align-items:baseline;gap:14px}.s .m .sub{display:none}}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
+.split.mid{align-items:center}
+@media (max-width:760px){.split{grid-template-columns:1fr}}
+.panel{background:var(--paper2)}
+.panel .s{border-top-color:var(--rule2)}
+
+/* ============ product plates ============ */
+.prod{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+.prod > article{display:grid;gap:18px;align-content:start}
+.prod .k{font-family:"Archivo",sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--orange-ink);display:flex;gap:10px;align-items:baseline}
+.prod .k span{color:var(--mute);font-weight:500;letter-spacing:0;text-transform:none}
+.prod h3{font-stretch:118%;font-weight:700;font-size:clamp(26px,2.6vw,34px);letter-spacing:-.01em}
+.prod ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-family:"Archivo",sans-serif;font-size:15px;color:var(--ink2)}
+.prod li{padding-left:18px;position:relative}
+.prod li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:2px;background:var(--orange)}
+@media (max-width:760px){.prod{grid-template-columns:1fr}}
+
+/* ============ tables ============ */
+.tbl{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-family:"Archivo",sans-serif;font-size:15px;min-width:680px;border-top:2px solid var(--rule2)}
+th,td{text-align:left;padding:14px 18px 14px 0;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45}
+th{font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink2)}
+td:first-child{font-weight:600;width:20%}
+th.hi,td.hi{background:var(--paper2);padding-left:14px;padding-right:14px}
+th.hi{color:var(--orange-ink)}
+table .serif{font-family:"Source Serif 4",serif;font-size:16px}
+
+/* ============ key-value ============ */
+.kv{display:grid;border-top:2px solid var(--rule2);font-family:"Archivo",sans-serif}
+.kv > div{display:grid;grid-template-columns:180px 1fr;gap:20px;padding:13px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.kv > div > span:first-child{font-weight:600;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);padding-top:2px}
+.kv ul{margin:0;padding:0;list-style:none;display:grid;gap:4px;color:var(--ink2)}
+.kv .num{font-variant-numeric:tabular-nums;font-weight:500;color:var(--ink)}
+@media (max-width:560px){.kv > div{grid-template-columns:1fr;gap:4px}}
+
+/* ============ numbered sequence (real order) ============ */
+.seq{counter-reset:step;display:grid;gap:0;border-top:2px solid var(--rule2)}
+.seq > li{list-style:none;counter-increment:step;display:grid;grid-template-columns:64px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--rule)}
+.seq > li::before{content:counter(step,decimal-leading-zero);font-family:"Archivo",sans-serif;font-stretch:125%;font-weight:800;font-size:30px;line-height:1;color:var(--orange);letter-spacing:-.02em}
+.seq h4{margin-bottom:4px;font-size:19px}
+.seq p{color:var(--ink2);font-size:17px;max-width:48ch}
+.seq{margin:0;padding:0}
+
+/* ============ diagram ============ */
+.diagram{width:100%;height:auto;font-family:"Archivo",sans-serif}
+.diagram .lbl{font-size:11.5px;fill:var(--ink2);font-weight:500;letter-spacing:.04em}
+.diagram .lbl.big{font-size:14px;fill:var(--ink);font-weight:700;letter-spacing:.06em}
+.diagram .al{fill:var(--al)}
+.diagram .ely{fill:var(--ely)}
+.diagram .mem{fill:var(--orange)}
+.diagram .cat{fill:var(--ink)}
+.diagram .wire{stroke:var(--ink);stroke-width:1.6;fill:none}
+.diagram .flow{stroke:var(--blue);stroke-width:1.6;fill:none}
+.diagram .load{fill:var(--paper);stroke:var(--ink);stroke-width:1.6}
+.diagram .e{fill:var(--orange-ink);font-size:12px;font-weight:600}
+.eqs{display:grid;border-top:2px solid var(--rule2);font-family:"Archivo",sans-serif}
+.eqs > div{display:grid;grid-template-columns:120px 1fr auto;gap:16px;padding:11px 0;border-bottom:1px solid var(--rule);align-items:baseline;font-size:15px}
+.eqs .k{font-weight:600;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2)}
+.eqs .v{font-weight:500;font-variant-numeric:tabular-nums}
+.eqs .e0{font-size:13px;color:var(--orange-ink);font-weight:600;white-space:nowrap}
+@media (max-width:560px){.eqs > div{grid-template-columns:1fr;gap:3px}}
+
+/* ============ chart ============ */
+.chart{width:100%;height:auto;font-family:"Archivo",sans-serif}
+.chart .ax{stroke:var(--ink);stroke-width:1.5}
+.chart .grid{stroke:var(--rule);stroke-width:1}
+.chart .t{font-size:11.5px;fill:var(--mute)}
+.chart .n{font-size:14px;fill:var(--ink);font-weight:600}
+.chart .v{font-size:13px;fill:var(--ink);font-weight:700}
+.chart .b1{fill:var(--al)}
+.chart .b2{fill:var(--orange)}
+
+/* ============ logos ============ */
+.logos{background:var(--logo-paper);border:1px solid var(--rule);padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(20px,3vw,36px) clamp(16px,3vw,40px);align-items:center}
+.logos img{width:100%;max-height:52px;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.05);opacity:.8}
+.logos img.sm{max-height:42px}
+@media (max-width:900px){.logos{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:560px){.logos{grid-template-columns:repeat(2,1fr)}}
+
+/* ============ news ============ */
+.news{display:grid;border-top:2px solid var(--rule2)}
+.news > article{display:grid;grid-template-columns:120px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
+.news img{width:100%;aspect-ratio:1/1;object-fit:cover;background:var(--paper2)}
+.news .meta{font-family:"Archivo",sans-serif;font-size:13px;color:var(--mute);display:flex;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.news .meta .cat{color:var(--orange-ink);font-weight:600}
+.news h3{font-family:"Source Serif 4",serif;font-weight:600;font-size:clamp(20px,1.9vw,25px);line-height:1.2;margin-bottom:6px}
+.news h3 a{text-decoration:none}
+.news h3 a:hover{color:var(--orange-ink)}
+.news p{color:var(--ink2);font-size:16.5px;max-width:66ch}
+@media (max-width:560px){.news > article{grid-template-columns:1fr}.news img{max-width:200px}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;font-family:"Archivo",sans-serif}
+.chips button{font:inherit;font-size:14px;font-weight:500;background:transparent;border:1.5px solid var(--rule);color:var(--ink2);padding:7px 12px;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* ============ faq ============ */
+.faq{border-top:2px solid var(--rule2)}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-family:"Archivo",sans-serif;font-weight:600;font-size:19px;display:flex;justify-content:space-between;gap:20px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--orange);font-size:24px;font-weight:500;flex:none}
+.faq details[open] summary::after{content:"–"}
+.faq .a{padding:0 0 20px;color:var(--ink2);max-width:64ch}
+
+/* ============ forms ============ */
+form.f{display:grid;gap:20px;font-family:"Archivo",sans-serif}
+form.f .row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:600px){form.f .row{grid-template-columns:1fr}}
+form.f label{display:grid;gap:7px;font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2)}
+form.f input,form.f select,form.f textarea{font:inherit;font-size:16px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink);background:var(--paper);border:1.5px solid var(--rule);padding:11px 12px;border-radius:0;width:100%}
+form.f input:focus,form.f select:focus,form.f textarea:focus{outline:0;border-color:var(--ink)}
+form.f textarea{min-height:130px;resize:vertical}
+form.f select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--ink2) 50%),linear-gradient(135deg,var(--ink2) 50%,transparent 50%);background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;background-size:5px 5px;background-repeat:no-repeat}
+form.f fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+form.f legend{font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);padding:0;margin-bottom:6px}
+form.f .opts{display:flex;flex-wrap:wrap;gap:8px 18px}
+form.f .opts label{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:400;letter-spacing:0;text-transform:none;color:var(--ink)}
+form.f .opts input{width:auto;accent-color:var(--orange)}
+.clist{display:grid;border-top:2px solid var(--rule2);font-family:"Archivo",sans-serif}
+.clist > div{display:grid;grid-template-columns:110px 1fr;gap:16px;padding:13px 0;border-bottom:1px solid var(--rule);font-size:16px}
+.clist span:first-child{font-weight:600;font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink2);padding-top:3px}
+.clist a{text-decoration:none;font-weight:500}
+.clist a:hover{color:var(--orange-ink)}
+
+/* ============ big claims ============ */
+.claims{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--rule2);border-bottom:2px solid var(--rule2)}
+.claims > div{padding:26px 24px 26px 0;margin-right:24px;border-right:1px solid var(--rule);display:grid;gap:6px}
+.claims > div:last-child{border-right:0;margin-right:0}
+.claims .big{font-family:"Archivo",sans-serif;font-stretch:125%;font-weight:800;font-size:clamp(56px,7vw,96px);line-height:.9;letter-spacing:-.03em;color:var(--orange);font-variant-numeric:tabular-nums}
+.claims .cap{font-family:"Archivo",sans-serif;font-size:15px;color:var(--ink2);max-width:28ch}
+.cite{font-family:"Archivo",sans-serif;font-size:13px;line-height:1.5;color:var(--mute);max-width:72ch}
+.quote{font-size:clamp(20px,1.8vw,24px);line-height:1.4;font-style:italic;max-width:46ch;border-left:3px solid var(--orange);padding-left:20px}
+.quote cite{display:block;font-style:normal;font-family:"Archivo",sans-serif;font-size:13.5px;color:var(--mute);margin-top:10px}
+
+/* ============ closing ============ */
+.close{border-top:2px solid var(--rule2);padding:clamp(40px,5vw,72px) 0}
+.close .doc{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);align-items:end}
+.close h2{font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:clamp(40px,6vw,88px);line-height:.9;letter-spacing:-.015em}
+@media (max-width:800px){.close .doc{grid-template-columns:1fr}}
+
+/* ============ footer ============ */
+footer{background:var(--foot);color:var(--foot-ink);font-family:"Archivo",sans-serif}
+footer .doc{padding-top:52px;padding-bottom:32px;display:grid;gap:44px}
+footer .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+@media (max-width:860px){footer .cols{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){footer .cols{grid-template-columns:1fr}}
+footer .wm2{width:220px;height:auto;display:block}
+footer .about{color:var(--foot-mute);font-size:14.5px;max-width:40ch;margin-top:14px;line-height:1.55}
+footer h4{font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--foot-mute);margin-bottom:12px}
+footer ul{margin:0;padding:0;list-style:none;display:grid;gap:8px;font-size:15px}
+footer a{text-decoration:none;color:var(--foot-ink)}
+footer a:hover{color:var(--orange)}
+footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--foot-rule);padding-top:18px;font-size:13px;color:var(--foot-mute)}
+</style>
+
+<header class="top">
+  <div class="doc">
+    <a class="wm" href="#home"><img src="img/logo.png" alt="AluminAiry" width="180" height="15"></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#technology">Technology</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#materials">Materials</a>
+      <a href="#mission">Mission</a>
+      <a href="#investors">Investors</a>
+      <a href="#news">News</a>
+      <a href="#contact" class="cta">Get in touch</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HOME ================= -->
+<section class="page" id="home">
+  <div class="hero">
+    <div class="doc">
+      <h1>Power from<br>recycled<br>aluminum.</h1>
+      <div class="row">
+        <div class="intro">
+          <p class="lead">AluminAiry builds aluminum-air generators for the loads that cannot go dark, and the electrodes and membranes other energy companies build with. The fuel is aluminum that would otherwise be landfilled. The byproduct is sold. Nothing burns.</p>
+          <div class="btns">
+            <a class="btn" href="#technology">How the cell works</a>
+            <a class="link" href="#contact">Talk to our team <span class="arrow">→</span></a>
+          </div>
+        </div>
+        <figure class="fig r43 duo">
+          <img src="img/TechnologyPageBanner.jpg" alt="Gloved hands connecting electrolyte lines to an aluminum-air test cell on a lab bench">
+          <figcaption><b>Fig. 0</b> Aluminum-air test cell under load. AluminAiry lab, Knoxville, Tennessee.</figcaption>
+        </figure>
+        <nav class="toc" aria-label="On this page">
+          <span class="h">Contents</span>
+          <a href="#home/h1"><b>01</b>What we build</a>
+          <a href="#home/h2"><b>02</b>Why aluminum</a>
+          <a href="#home/h3"><b>03</b>The reaction</a>
+          <a href="#home/h4"><b>04</b>Closing the loop</a>
+          <a href="#home/h5"><b>05</b>Who backs us</a>
+          <a href="#home/h6"><b>06</b>News</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <dl class="plate">
+    <div class="doc">
+      <div><dt>Cell voltage</dt><dd>1.0–1.2 V</dd></div>
+      <div><dt>System voltages</dt><dd>12 · 24 · 60 V</dd></div>
+      <div><dt>Electrolyte</dt><dd>Water-based<small>Non-flammable</small></dd></div>
+      <div><dt>Operating emissions</dt><dd>None</dd></div>
+      <div><dt>Byproduct</dt><dd>Al(OH)₃<small>Aluminum trihydroxide, sold on</small></dd></div>
+    </div>
+  </dl>
+
+  <div class="doc">
+    <section class="s" id="h1">
+      <div class="m"><span class="n">01</span><span class="t">What we build</span><span class="sub">Two product lines, one electrochemistry.</span></div>
+      <div class="c">
+        <div class="prod">
+          <article>
+            <p class="k">Power systems <span>/ generators</span></p>
+            <h3>Aluminum-air generators</h3>
+            <figure class="fig nat"><img src="img/aluminairyConcept.png" alt="Two AluminAiry generator concepts: a residential standby unit on a pad and a ruggedized military remote-power unit"><figcaption><b>Fig. 1</b> Residential/commercial standby unit (left) and U.S. military remote-power unit (right), concept.</figcaption></figure>
+            <p>Standby and primary power for homes, facilities, and remote military sites. Refueled by swapping aluminum plates instead of recharging or refilling a tank. No combustion, no fuel storage, no downtime.</p>
+            <ul>
+              <li>Residential and commercial backup</li>
+              <li>Hospitals, data centers, telecom, manufacturing</li>
+              <li>Military field operations and off-grid sites</li>
+              <li>Series-configurable to 12, 24, or 60 volts</li>
+            </ul>
+            <p><a class="link" href="#solutions">Solutions by application <span class="arrow">→</span></a></p>
+          </article>
+          <article>
+            <p class="k">Energy materials <span>/ components</span></p>
+            <h3>Electrodes, membranes &amp; catalysts</h3>
+            <figure class="fig r169"><img src="img/EnergyMaterialsPageBanner.jpg" alt="Sheets and discs of black gas diffusion layer carbon paper on a blue background"><figcaption><b>Fig. 2</b> Gas diffusion layers cut to standard sheet and small-scale form factors.</figcaption></figure>
+            <p>Gas diffusion electrodes, catalyst-coated membranes, and catalysts for fuel cells, metal-air batteries, and flow batteries. Small-batch and pilot-scale, made in the United States.</p>
+            <ul>
+              <li>Pt/C and MnO₂ catalysts, or electrodes from yours</li>
+              <li>Sigracet and Toray GDLs, Nafion membranes</li>
+              <li>1–5 cm² coupons up to 40 × 40 cm sheets</li>
+              <li>Up to 20% cheaper and 25% faster than large suppliers</li>
+            </ul>
+            <p><a class="link" href="#materials">Materials catalog <span class="arrow">→</span></a></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="h2">
+      <div class="m"><span class="n">02</span><span class="t">Why aluminum</span><span class="sub">Against the two defaults.</span></div>
+      <div class="c">
+        <p class="lead">Facilities that need power through an outage usually choose between a diesel generator and a lithium-ion battery bank. Aluminum-air removes the things that make each one expensive to own.</p>
+        <div class="tbl">
+          <table>
+            <thead><tr><th></th><th class="hi">Aluminum-air</th><th>Diesel generator</th><th>Lithium-ion storage</th></tr></thead>
+            <tbody>
+              <tr><td>Fuel</td><td class="hi">Recycled aluminum plate</td><td>Diesel, commodity-priced</td><td>Grid electricity</td></tr>
+              <tr><td>Flammable on site</td><td class="hi">No. Water-based electrolyte</td><td>Yes. Fuel storage, fire code, suppression</td><td>Yes. Thermal runaway risk</td></tr>
+              <tr><td>Operating emissions</td><td class="hi">None</td><td>CO₂, NOx, particulates. Permits and reporting</td><td>None on site</td></tr>
+              <tr><td>Refuel or recharge</td><td class="hi">Mechanical plate swap. No downtime</td><td>Fuel delivery. Oil, filters, exhaust after-treatment</td><td>Hours on a grid that is down during the outage</td></tr>
+              <tr><td>Critical minerals</td><td class="hi">None</td><td>None</td><td>Lithium, cobalt, nickel</td></tr>
+              <tr><td>What is left over</td><td class="hi">Al(OH)₃, sold to secondary markets</td><td>Exhaust</td><td>Spent cells</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="h3">
+      <div class="m"><span class="n">03</span><span class="t">The reaction</span><span class="sub">Aluminum in. Air in. Electricity out.</span></div>
+      <div class="c">
+        <div class="split">
+          <figure class="fig">
+            <svg class="diagram" viewBox="0 0 560 400" role="img" aria-labelledby="dgt">
+              <title id="dgt">Cross-section of an aluminum-air cell: aluminum anode, water-based electrolyte, membrane, air cathode, with electrons flowing through an external load</title>
+              <path class="wire" d="M190 96 V60 H235 M325 60 H370 V96"/>
+              <rect class="load" x="235" y="46" width="90" height="28"/>
+              <text class="lbl big" x="280" y="65" text-anchor="middle">LOAD</text>
+              <text class="e" x="212" y="52" text-anchor="middle">e⁻ →</text>
+              <text class="e" x="348" y="52" text-anchor="middle">→ e⁻</text>
+              <rect class="al"  x="170" y="96" width="40" height="190"/>
+              <rect class="ely" x="210" y="96" width="120" height="190"/>
+              <rect class="mem" x="330" y="96" width="8" height="190"/>
+              <rect class="cat" x="338" y="96" width="32" height="190"/>
+              <text class="lbl" x="190" y="314" text-anchor="middle">Aluminum</text>
+              <text class="lbl" x="190" y="328" text-anchor="middle">anode</text>
+              <text class="lbl" x="280" y="314" text-anchor="middle">Water-based</text>
+              <text class="lbl" x="280" y="328" text-anchor="middle">electrolyte</text>
+              <text class="lbl" x="354" y="314" text-anchor="middle">Air</text>
+              <text class="lbl" x="354" y="328" text-anchor="middle">cathode</text>
+              <path class="wire" d="M334 286 V300 H392"/>
+              <text class="lbl" x="398" y="304">Membrane</text>
+              <path class="flow" d="M60 150 H160"/><path class="flow" d="M152 145 L160 150 L152 155"/>
+              <text class="lbl" x="60" y="136">Recycled Al plate</text><text class="lbl" x="60" y="170">(fuel, swapped)</text>
+              <path class="flow" d="M500 150 H380"/><path class="flow" d="M388 145 L380 150 L388 155"/>
+              <text class="lbl" x="500" y="136" text-anchor="end">Ambient air</text><text class="lbl" x="500" y="170" text-anchor="end">O₂ in</text>
+              <path class="flow" d="M60 230 H160"/><path class="flow" d="M152 225 L160 230 L152 235"/>
+              <text class="lbl" x="60" y="220">Electrolyte</text><text class="lbl" x="60" y="250">circulation</text>
+              <path class="flow" d="M228 286 V372 H160"/><path class="flow" d="M168 367 L160 372 L168 377"/>
+              <text class="lbl" x="152" y="376" text-anchor="end">Al(OH)₃ out, sold</text>
+            </svg>
+            <figcaption><b>Fig. 3</b> Aluminum-air cell, cross-section. Not to scale.</figcaption>
+          </figure>
+          <div style="display:grid;gap:22px">
+            <div class="prose">
+              <p>An aluminum plate oxidizes at the anode and gives up electrons. Oxygen from ambient air is reduced at the cathode and takes them back. The electrolyte carries hydroxide between the two. The electrons take the long way around, through your load.</p>
+            </div>
+            <div class="eqs">
+              <div><span class="k">Anode</span><span class="v">Al + 3OH⁻ → Al(OH)₃ + 3e⁻</span><span class="e0">E° = −2.31 V</span></div>
+              <div><span class="k">Cathode</span><span class="v">O₂ + 2H₂O + 4e⁻ → 4OH⁻</span><span class="e0">E° = +0.40 V</span></div>
+              <div><span class="k">Overall</span><span class="v">4Al + 3O₂ + 6H₂O → 4Al(OH)₃</span><span class="e0">E° = +2.71 V</span></div>
+            </div>
+            <p class="cite">Practical cell voltage under load is 1.0–1.2 V. Cells are stacked in series to reach 12, 24, or 60 volts. A 2026 peer-reviewed study reached a record 710 mW/cm² peak power density for the chemistry. <a href="#technology">Read more on the technology page.</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="h4">
+      <div class="m"><span class="n">04</span><span class="t">Closing the loop</span><span class="sub">Sixty percent of cans are buried.</span></div>
+      <div class="c">
+        <div class="split">
+          <div style="display:grid;gap:26px">
+            <h2>About 1.3 GWh of energy is buried every year in cans alone.</h2>
+            <p class="prose">Sixty percent of aluminum cans in the United States end up in a landfill, and the energy that went into smelting them goes with them. Our generators pull that energy back out as electricity, and the aluminum trihydroxide that remains is sold into secondary markets. The loop has four stops.</p>
+            <ol class="seq">
+              <li><div><h4>Collect</h4><p>Cans, manufacturing scrap, and post-consumer aluminum from partners and recyclers.</p></div></li>
+              <li><div><h4>Convert</h4><p>Aluminum is prepared as plate fuel and loaded into the generator.</p></div></li>
+              <li><div><h4>Generate</h4><p>Electricity is produced on site. No grid, no emissions, no noise.</p></div></li>
+              <li><div><h4>Recover</h4><p>Aluminum trihydroxide is collected and sold, and the cycle starts again.</p></div></li>
+            </ol>
+            <div class="btns"><a class="btn line" href="#technology/recycle">Recycle with us</a><a class="link" href="#mission">Our mission <span class="arrow">→</span></a></div>
+          </div>
+          <figure class="fig r43 duo">
+            <img src="img/aluminairyRecycling.jpg" alt="A dense pile of crushed post-consumer aluminum beverage cans">
+            <figcaption><b>Fig. 4</b> Post-consumer cans, the feedstock for aluminum plate fuel.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="h5">
+      <div class="m"><span class="n">05</span><span class="t">Who backs us</span><span class="sub">Investors, partners, supporters.</span></div>
+      <div class="c">
+        <div class="logos">
+          <img src="img/utResearchFound.png" alt="UT Research Foundation">
+          <img src="img/tickleCollege.png" alt="Tickle College of Engineering, University of Tennessee" class="sm">
+          <img src="img/haslam.png" alt="Haslam College of Business, University of Tennessee Knoxville">
+          <img src="img/devcom.png" alt="DEVCOM Army Research Laboratory">
+          <img src="img/TVA.png" alt="Tennessee Valley Authority" class="sm">
+          <img src="img/sparkAccelerator.png" alt="Spark Cleantech Accelerator">
+          <img src="img/wilsonSonsini.png" alt="Wilson Sonsini" class="sm">
+          <img src="img/CAG.png" alt="Composite Applications Group">
+          <img src="img/vertxPartners.png" alt="Vertx Partners">
+          <img src="img/industrialElectric.png" alt="Industrial Electronics Inc." class="sm">
+        </div>
+        <p class="small">Founded in Knoxville, Tennessee. Supported by the University of Tennessee Research Foundation, the Tickle College of Engineering, the Haslam College of Business, DEVCOM Army Research Laboratory, and the Tennessee Valley Authority. Winner of the Clean Innovation Fund award, 2025.</p>
+      </div>
+    </section>
+
+    <section class="s" id="h6">
+      <div class="m"><span class="n">06</span><span class="t">News</span><span class="sub"><a class="link" href="#news">All posts →</a></span></div>
+      <div class="c">
+        <div class="news">
+          <article><img src="img/hospitalPower.png" alt="Hospital emergency entrance at dusk"><div><div class="meta"><span class="cat">Savings &amp; ROI</span><span>April 15, 2026</span></div><h3><a href="#news">Total cost of ownership: aluminum-air backup power vs. diesel generators</a></h3><p>Diesel wins on sticker price and loses on everything else. A framework for operations and finance leaders.</p></div></article>
+          <article><img src="img/aluminairyTech.png" alt="Aluminum-air cell diagram"><div><div class="meta"><span class="cat">Technology</span><span>April 2, 2026</span></div><h3><a href="#news">How aluminum-air batteries reached record power density</a></h3><p>A peer-reviewed study pushed peak power density to 710 mW/cm² by managing the aluminum product film. What changed, and why it matters.</p></div></article>
+          <article><img src="img/CIFAward.jpg" alt="AluminAiry team holding awards at the Clean Innovation Fund ceremony"><div><div class="meta"><span class="cat">Company</span><span>November 12, 2025</span></div><h3><a href="#news">AluminAiry wins Clean Innovation Fund award</a></h3><p>Recognized for breakthrough work in aluminum-air energy generation, with new funding to scale the platform.</p></div></article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="close">
+    <div class="doc">
+      <h2>Bring us your aluminum.<br>Or your capital.</h2>
+      <div style="display:grid;gap:22px">
+        <p class="prose">Recyclers, facilities operators, research partners, and investors all have a place in the loop. Brian Washington, our founder, reads every message.</p>
+        <div class="clist">
+          <div><span>Email</span><a href="mailto:bwashington@aluminairy.com">bwashington@aluminairy.com</a></div>
+          <div><span>Phone</span><a href="tel:+12053944282">205-394-4282</a></div>
+          <div><span>Office</span><span>Knoxville, Tennessee</span></div>
+        </div>
+        <div class="btns"><a class="btn" href="#contact">Contact us</a><a class="link" href="#investors">Investor information <span class="arrow">→</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TECHNOLOGY ================= -->
+<section class="page" id="technology" hidden>
+  <div class="hero sub">
+    <div class="doc">
+      <h1>Aluminum.<br>Air.<br>Electricity.</h1>
+      <div class="row">
+        <div class="intro">
+          <p class="lead">An aluminum-air cell generates electricity from the reaction between aluminum and oxygen in ambient air. It is one of the highest energy-density chemistries known, it is lightweight, and it is mechanically simple.</p>
+          <p class="prose">Instead of recharging, the cell is refueled. Spent aluminum plates are swapped for fresh ones, as fast as filling a tank. Aluminum is abundant and fully recyclable, so the fuel supply is the recycling stream.</p>
+        </div>
+        <figure class="fig r43 duo">
+          <img src="img/contactusalumin.jpg" alt="Researcher in a lab coat adjusting instrumentation on a test bench surrounded by cabling">
+          <figcaption><b>Fig. 1</b> Cell characterization, AluminAiry lab.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <dl class="plate">
+    <div class="doc">
+      <div><dt>Per-cell voltage</dt><dd>1.0–1.2 V</dd></div>
+      <div><dt>System voltages</dt><dd>12 · 24 · 60 V<small>Cells in series</small></dd></div>
+      <div><dt>EV range potential</dt><dd>1,500 mi<small>Per refuel</small></dd></div>
+      <div><dt>Electrolyte base</dt><dd>H₂O<small>Non-flammable</small></dd></div>
+      <div><dt>Byproduct</dt><dd>ATH<small>Aluminum trihydroxide, sellable</small></dd></div>
+    </div>
+  </dl>
+
+  <div class="doc">
+    <section class="s" id="how-it-works">
+      <div class="m"><span class="n">01</span><span class="t">How it works</span><span class="sub">The cell, in cross-section.</span></div>
+      <div class="c">
+        <div class="split">
+          <figure class="fig">
+            <svg class="diagram" viewBox="0 0 560 400" role="img" aria-label="Aluminum-air cell cross-section">
+              <path class="wire" d="M190 96 V60 H235 M325 60 H370 V96"/>
+              <rect class="load" x="235" y="46" width="90" height="28"/>
+              <text class="lbl big" x="280" y="65" text-anchor="middle">LOAD</text>
+              <text class="e" x="212" y="52" text-anchor="middle">e⁻ →</text>
+              <text class="e" x="348" y="52" text-anchor="middle">→ e⁻</text>
+              <rect class="al"  x="170" y="96" width="40" height="190"/>
+              <rect class="ely" x="210" y="96" width="120" height="190"/>
+              <rect class="mem" x="330" y="96" width="8" height="190"/>
+              <rect class="cat" x="338" y="96" width="32" height="190"/>
+              <text class="lbl" x="190" y="314" text-anchor="middle">Aluminum</text>
+              <text class="lbl" x="190" y="328" text-anchor="middle">anode</text>
+              <text class="lbl" x="280" y="314" text-anchor="middle">Water-based</text>
+              <text class="lbl" x="280" y="328" text-anchor="middle">electrolyte</text>
+              <text class="lbl" x="354" y="314" text-anchor="middle">Air</text>
+              <text class="lbl" x="354" y="328" text-anchor="middle">cathode</text>
+              <path class="wire" d="M334 286 V300 H392"/>
+              <text class="lbl" x="398" y="304">Membrane</text>
+              <path class="flow" d="M60 150 H160"/><path class="flow" d="M152 145 L160 150 L152 155"/>
+              <text class="lbl" x="60" y="136">Recycled Al plate</text><text class="lbl" x="60" y="170">(fuel, swapped)</text>
+              <path class="flow" d="M500 150 H380"/><path class="flow" d="M388 145 L380 150 L388 155"/>
+              <text class="lbl" x="500" y="136" text-anchor="end">Ambient air</text><text class="lbl" x="500" y="170" text-anchor="end">O₂ in</text>
+              <path class="flow" d="M60 230 H160"/><path class="flow" d="M152 225 L160 230 L152 235"/>
+              <text class="lbl" x="60" y="220">Electrolyte</text><text class="lbl" x="60" y="250">circulation</text>
+              <path class="flow" d="M228 286 V372 H160"/><path class="flow" d="M168 367 L160 372 L168 377"/>
+              <text class="lbl" x="152" y="376" text-anchor="end">Al(OH)₃ out, sold</text>
+            </svg>
+            <figcaption><b>Fig. 2</b> Aluminum-air cell, cross-section. Not to scale.</figcaption>
+          </figure>
+          <div style="display:grid;gap:22px">
+            <div class="prose">
+              <p>Aluminum oxidizes at the anode and gives up electrons. Oxygen from the air is reduced at the cathode and takes them back. The electrolyte carries hydroxide between the two, and the electrons go through your load.</p>
+              <p>Systems operate at 1.0–1.2 V per cell and are connected in series to reach 12, 24, or 60 volts depending on the application. Refueling is mechanical, so the customer sees zero downtime. The aluminum trihydroxide produced during operation is recovered and sold to secondary markets, which turns the waste stream into revenue.</p>
+            </div>
+            <div class="eqs">
+              <div><span class="k">Anode</span><span class="v">Al + 3OH⁻ → Al(OH)₃ + 3e⁻</span><span class="e0">E° = −2.31 V</span></div>
+              <div><span class="k">Cathode</span><span class="v">O₂ + 2H₂O + 4e⁻ → 4OH⁻</span><span class="e0">E° = +0.40 V</span></div>
+              <div><span class="k">Overall</span><span class="v">4Al + 3O₂ + 6H₂O → 4Al(OH)₃</span><span class="e0">E° = +2.71 V</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">02</span><span class="t">Proven performance</span><span class="sub">A record for power density.</span></div>
+      <div class="c">
+        <div class="split">
+          <div style="display:grid;gap:20px">
+            <h2>From 64 to 710 mW/cm².</h2>
+            <p class="prose">Peer-reviewed research took a baseline aluminum-air cell to a peak power density of 710 mW/cm², the highest reported for the chemistry on an anode-area basis, by managing the aluminum product film at the anode.</p>
+            <p class="cite">Peak power density on an aluminum-anode-area basis. Prior best reported value per the study's literature survey. Source: Griffith et al., ECS Advances, 2026, 5, 010504 (CC BY 4.0).</p>
+          </div>
+          <figure class="fig">
+            <svg class="chart" viewBox="0 0 600 170" role="img" aria-label="Bar chart: baseline cell 64 mW per square centimeter versus film-tuned cell 710 mW per square centimeter">
+              <line class="grid" x1="150" y1="20" x2="150" y2="122"/>
+              <line class="grid" x1="257.5" y1="20" x2="257.5" y2="122"/>
+              <line class="grid" x1="365" y1="20" x2="365" y2="122"/>
+              <line class="grid" x1="472.5" y1="20" x2="472.5" y2="122"/>
+              <line class="grid" x1="580" y1="20" x2="580" y2="122"/>
+              <text class="n" x="0" y="46">Baseline cell</text>
+              <rect class="b1" x="150" y="28" width="34.4" height="28"/>
+              <text class="v" x="192" y="47">64</text>
+              <text class="n" x="0" y="96">Film-tuned cell</text>
+              <rect class="b2" x="150" y="78" width="381.6" height="28"/>
+              <text class="v" x="540" y="97">710</text>
+              <line class="ax" x1="150" y1="122" x2="580" y2="122"/>
+              <text class="t" x="150" y="140" text-anchor="middle">0</text>
+              <text class="t" x="257.5" y="140" text-anchor="middle">200</text>
+              <text class="t" x="365" y="140" text-anchor="middle">400</text>
+              <text class="t" x="472.5" y="140" text-anchor="middle">600</text>
+              <text class="t" x="580" y="140" text-anchor="middle">800</text>
+              <text class="t" x="580" y="162" text-anchor="end">Peak power density, mW/cm²</text>
+            </svg>
+            <figcaption><b>Fig. 3</b> Peak power density, baseline vs. film-tuned cell.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">03</span><span class="t">Refueling</span><span class="sub">Refueled, not recharged.</span></div>
+      <div class="c">
+        <div class="split mid">
+          <figure class="fig r43 duo">
+            <img src="img/TechnologyPageBanner.jpg" alt="Gloved hands connecting electrolyte lines to an aluminum-air test cell">
+            <figcaption><b>Fig. 4</b> Plate-swap fixture on a bench cell.</figcaption>
+          </figure>
+          <div class="prose">
+            <p>A lithium battery has to sit on a charger. A diesel generator has to be topped off from a truck. An aluminum-air generator is refueled by removing the spent plates and inserting fresh ones. The exchange is mechanical and takes minutes.</p>
+            <p>Because the fuel is a solid, it stores indefinitely, ships without hazmat handling, and does not degrade on the shelf. Standby systems stay ready for years without maintenance cycles.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="applications">
+      <div class="m"><span class="n">04</span><span class="t">Applications</span><span class="sub">Dual-use from day one.</span></div>
+      <div class="c">
+        <div class="kv">
+          <div><span>Residential</span><ul><li>Long-duration home backup that works through any grid outage or natural disaster, with no fuel stored in the garage.</li></ul></div>
+          <div><span>Critical infrastructure</span><ul><li>Hospitals, data centers, and emergency services need power that never fails and never burns.</li></ul></div>
+          <div><span>Remote &amp; off-grid</span><ul><li>Military bases, field operations, and off-grid communities. No pipeline, no grid connection, no diesel resupply convoy.</li></ul></div>
+          <div><span>Electric vehicles</span><ul><li>Up to 1,500 miles per refuel at a fraction of the pack weight of lithium-ion.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="recycle">
+      <div class="m"><span class="n">05</span><span class="t">Recycle with us</span><span class="sub">Your aluminum waste is our fuel.</span></div>
+      <div class="c">
+        <div class="split">
+          <div style="display:grid;gap:18px">
+            <h2>Cans, scrap, sheet, or offcuts.</h2>
+            <p class="prose">Tell us what you have and roughly how much, and we will follow up on collection.</p>
+            <p class="cite">Submitting opens a pre-filled email to our team. Nothing is stored on this page.</p>
+          </div>
+          <form class="f" id="recycleForm">
+            <div class="row">
+              <label>Name<input name="name" required></label>
+              <label>Email<input name="email" type="email" required></label>
+            </div>
+            <label>Street address<input name="street"></label>
+            <div class="row">
+              <label>City<input name="city"></label>
+              <label>State / province<input name="state"></label>
+            </div>
+            <div class="row">
+              <label>ZIP<input name="zip"></label>
+              <label>Country<select name="country"><option>United States</option><option>Canada</option><option>Mexico</option></select></label>
+            </div>
+            <fieldset>
+              <legend>Aluminum material type</legend>
+              <div class="opts">
+                <label><input type="checkbox" name="type" value="Cans" checked> Cans</label>
+                <label><input type="checkbox" name="type" value="Scrap"> Scrap</label>
+                <label><input type="checkbox" name="type" value="Sheet"> Sheet</label>
+                <label><input type="checkbox" name="type" value="Other"> Other</label>
+              </div>
+            </fieldset>
+            <label>Estimated quantity (lbs)<input name="qty" type="number" min="0" placeholder="e.g. 500"></label>
+            <div class="btns"><button class="btn" type="submit">Submit recycling request</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+
+<!-- ================= SOLUTIONS ================= -->
+<section class="page" id="solutions" hidden>
+  <div class="hero sub">
+    <div class="doc">
+      <h1>Clean backup power,<br>on demand.</h1>
+      <div class="row">
+        <div class="intro">
+          <p class="lead">Non-flammable, grid-independent power for the operations that cannot afford to go dark. Built for real-world resilience, not a spec sheet.</p>
+          <div class="btns"><a class="btn" href="#contact/tco">Request a TCO analysis</a></div>
+        </div>
+        <figure class="fig r43 duo">
+          <img src="img/hospitalPower.png" alt="Hospital emergency entrance lit at dusk">
+          <figcaption><b>Fig. 1</b> Life-safety loads, where backup power is not optional.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc">
+    <section class="s">
+      <div class="m"><span class="n">01</span><span class="t">Who this is for</span><span class="sub">Resilience without the trade-offs.</span></div>
+      <div class="c">
+        <div class="prose lead">
+          <p>Operations and facilities leaders face the same tension. They need dependable standby power, but the default options carry hidden costs: volatile diesel prices, fire risk, emissions permits, and maintenance drag.</p>
+          <p>Aluminum-air is a different answer. A non-flammable, zero-emission, grid-independent source fueled by abundant, recyclable aluminum.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">02</span><span class="t">Applications</span><span class="sub">Built for the loads that can't fail.</span></div>
+      <div class="c">
+        <div class="kv">
+          <div><span>Data centers &amp; critical IT</span><ul><li>Dependable standby power without flammable fuel storage on site. Simpler fire-code compliance, no costly downtime.</li></ul></div>
+          <div><span>Hospitals &amp; healthcare</span><ul><li>Life-safety loads demand power that never fails and never burns. Lower risk and less permitting friction in occupied buildings.</li></ul></div>
+          <div><span>Manufacturing</span><ul><li>An hour of unplanned downtime costs a production line dearly. Keep critical processes running through outages and grid instability.</li></ul></div>
+          <div><span>Telecom &amp; remote sites</span><ul><li>Remote towers rack up diesel logistics costs. Aluminum fuel is safer and simpler to transport, store, and handle.</li></ul></div>
+          <div><span>Commercial facilities</span><ul><li>Rising electricity costs and grid volatility make on-site resilience a strategic asset. Clean backup also strengthens ESG scoring.</li></ul></div>
+          <div><span>Government &amp; defense</span><ul><li>Field operations need energy that works in harsh conditions with a long shelf life, without the emissions and fire risk of combustion fuels.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">03</span><span class="t">Cost of ownership</span><span class="sub">Sticker price is the smallest line.</span></div>
+      <div class="c">
+        <h2>Diesel generators are cheap to buy and expensive to own.</h2>
+        <p class="prose">The lifetime bill is driven by the lines that never appear on the purchase order.</p>
+        <div class="tbl">
+          <table>
+            <thead><tr><th>Cost line</th><th>Diesel generator</th><th class="hi">Aluminum-air</th></tr></thead>
+            <tbody>
+              <tr><td>Fuel price</td><td>Swings with global commodity markets, and spikes during the emergencies when you need power most.</td><td class="hi">Aluminum sourced through recycling. A structurally more stable cost basis.</td></tr>
+              <tr><td>Maintenance</td><td>Oil changes, filters, exhaust after-treatment, load-bank testing, fuel polishing.</td><td class="hi">No combustion. Refueling is a mechanical plate swap, not a fuel-storage-and-delivery operation.</td></tr>
+              <tr><td>Fire liability</td><td>Flammable fuel drives siting restrictions, suppression requirements, and insurance premiums.</td><td class="hi">Water-based, non-flammable electrolyte removes the entire risk category.</td></tr>
+              <tr><td>Emissions exposure</td><td>Air-quality permits, emissions reporting, and growing carbon-price liability.</td><td class="hi">Zero-emission operation simplifies compliance and hedges future regulatory cost.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><a class="link" href="#news">Read the full TCO breakdown <span class="arrow">→</span></a></p>
+      </div>
+    </section>
+  </div>
+
+  <div class="close">
+    <div class="doc">
+      <h2>See the numbers<br>for your site.</h2>
+      <div style="display:grid;gap:22px">
+        <p class="prose">Every site is different. We will build a total-cost-of-ownership comparison from your load profile, run hours, and current backup source.</p>
+        <div class="btns"><a class="btn" href="#contact/tco">Request a TCO analysis</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MATERIALS ================= -->
+<section class="page" id="materials" hidden>
+  <div class="hero sub">
+    <div class="doc">
+      <h1>Electrodes,<br>built to spec.</h1>
+      <div class="row">
+        <div class="intro">
+          <p class="lead">Gas diffusion electrodes, catalyst-coated membranes, and catalysts for fuel cells, metal-air batteries, and flow batteries. Small-batch and pilot-scale, made in the United States, delivered faster and cheaper than large-scale manufacturers.</p>
+          <div class="btns"><a class="btn" href="#contact/quote">Get a quote</a><a class="link" href="tel:+12053944282">205-394-4282</a></div>
+        </div>
+        <figure class="fig r43">
+          <img src="img/EnergyMaterialsPageBanner.jpg" alt="Black gas diffusion layer carbon paper sheets and a cut disc on a blue surface">
+          <figcaption><b>Fig. 1</b> Gas diffusion layers, sheet and disc form factors.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc">
+    <div class="claims">
+      <div><span class="big">20%</span><span class="cap">cheaper than commercial suppliers, up to</span></div>
+      <div><span class="big">25%</span><span class="cap">faster delivery than commercial suppliers, up to</span></div>
+    </div>
+
+    <section class="s">
+      <div class="m"><span class="n">01</span><span class="t">Catalog</span><span class="sub">What we make, and in what sizes.</span></div>
+      <div class="c">
+        <div class="split">
+          <div style="display:grid;gap:36px">
+            <div><h3 style="margin-bottom:12px">Catalysts</h3>
+              <div class="kv">
+                <div><span>PGM</span><ul><li>Pt/C, various wt% loadings</li></ul></div>
+                <div><span>Non-PGM</span><ul><li>MnO₂, multiple polymorphs and morphologies</li></ul></div>
+                <div><span>Yours</span><ul><li>We also prepare electrodes from customer-supplied catalysts</li></ul></div>
+              </div></div>
+            <div><h3 style="margin-bottom:12px">Loadings</h3>
+              <div class="kv">
+                <div><span>PGM catalysts</span><ul><li class="num">0.1 – 0.4 mg/cm²</li></ul></div>
+                <div><span>MnO₂ &amp; non-PGM</span><ul><li class="num">1 – 3 mg/cm²</li></ul></div>
+              </div></div>
+          </div>
+          <div style="display:grid;gap:36px">
+            <div><h3 style="margin-bottom:12px">Substrates</h3>
+              <div class="kv">
+                <div><span>Gas diffusion layers</span><ul><li>Sigracet carbon papers and cloths</li><li>Toray carbon papers</li><li>Other commercial or customer-supplied GDLs</li></ul></div>
+                <div><span>Membranes</span><ul><li>Nafion</li></ul></div>
+              </div></div>
+            <div><h3 style="margin-bottom:12px">Form factors</h3>
+              <div class="kv">
+                <div><span>Small-scale</span><ul><li class="num">1 – 5 cm²</li></ul></div>
+                <div><span>Standard sheets</span><ul><li class="num">10 × 10 cm</li><li class="num">20 × 20 cm</li><li class="num">40 × 40 cm</li></ul></div>
+              </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">02</span><span class="t">Custom materials</span><span class="sub">Your catalyst, your loading, your size.</span></div>
+      <div class="c">
+        <div class="split">
+          <div style="display:grid;gap:24px">
+            <div class="prose">
+              <p>We fabricate custom materials based on the customer's catalysts, substrates, formulations, loadings, and form factors. If you have a recipe, we can run it. If you have a target, we can help get there.</p>
+              <p>R&amp;D and pilot teams need the best materials quickly and affordably, and large-scale manufacturers are not set up to serve small runs. We are.</p>
+            </div>
+            <blockquote class="quote">We are a U.S.-based company focused on small-batch and pilot-scale production. In today's world, you and your company need access to the best materials quickly and affordably.<cite>Brian Washington, Founder and CEO</cite></blockquote>
+          </div>
+          <figure class="fig">
+            <img src="img/materials-sheet.jpg" alt="AluminAiry Energy Materials one-page capabilities sheet listing catalysts, substrates, loadings, and form factors" style="aspect-ratio:auto;border:1px solid var(--rule)">
+            <figcaption><b>Fig. 2</b> Capabilities sheet, AluminAiry Energy Materials.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="close">
+    <div class="doc">
+      <h2>Tell us the spec.<br>We'll price the run.</h2>
+      <div class="clist">
+        <div><span>Email</span><a href="mailto:info@aluminairy.com">info@aluminairy.com</a></div>
+        <div><span>Phone</span><a href="tel:+12053944282">205-394-4282</a></div>
+        <div><span>Office</span><span>Knoxville, Tennessee</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MISSION ================= -->
+<section class="page" id="mission" hidden>
+  <div class="hero sub">
+    <div class="doc">
+      <h1>Overlooked waste,<br>uninterrupted<br>energy.</h1>
+      <div class="row">
+        <div class="intro">
+          <p class="lead">Many industries generate aluminum scrap and byproducts that are discarded or underutilized. We turn that material into clean, uninterrupted power for homes, businesses, and vehicles.</p>
+        </div>
+        <figure class="fig r43 duo">
+          <img src="img/aluminairyRocks.png" alt="Pallets of compressed aluminum scrap bales stacked inside a warehouse">
+          <figcaption><b>Fig. 1</b> Baled aluminum scrap, ready for conversion to plate fuel.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <div class="doc">
+    <section class="s">
+      <div class="m"><span class="n">01</span><span class="t">The problem</span><span class="sub">Energy buried with the cans.</span></div>
+      <div class="c">
+        <h2>Sixty percent of aluminum cans end up in a landfill.</h2>
+        <div class="split">
+          <div class="prose">
+            <p>Aluminum is one of the most energy-intensive materials to make and one of the easiest to recycle, yet most cans are thrown away. We estimate roughly 1.3 GWh of energy is landfilled each year in cans alone. Energy that could power communities, businesses, and critical infrastructure.</p>
+            <p>We imagine a future where energy is generated from cans and waste products. Instead of discarding them, we convert them into a low-cost fuel for our energy generation systems, turning a disposal problem into a distributed energy asset.</p>
+          </div>
+          <dl class="kv" style="align-self:start">
+            <div><span>Cans landfilled</span><ul><li class="num">60% of U.S. aluminum cans</li></ul></div>
+            <div><span>Energy lost</span><ul><li class="num">≈ 1.3 GWh per year, cans alone</li></ul></div>
+            <div><span>Zero-emission operation</span><ul><li class="num">100%</li></ul></div>
+            <div><span>Critical minerals</span><ul><li class="num">None. No lithium, cobalt, or nickel</li></ul></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">02</span><span class="t">Circular economy</span><span class="sub">The technology sits at the center.</span></div>
+      <div class="c">
+        <div class="split mid">
+          <figure class="fig">
+            <img src="img/aluminairyProcess.png" alt="Diagram of the AluminAiry circular economy: consumer aluminum feeds energy extraction, electricity goes to backup and remote applications, byproduct goes to secondary markets and energy is reintegrated" style="aspect-ratio:auto;background:#fff;padding:14px;border:1px solid var(--rule)">
+            <figcaption><b>Fig. 2</b> The circular economy as we run it.</figcaption>
+          </figure>
+          <div class="prose">
+            <p>We convert consumer and post-consumer aluminum into energy through electrochemical extraction. The aluminum trihydroxide generated during operation is recovered and sold to secondary markets, creating a second revenue stream.</p>
+            <p>This is energy independence built on a material that already exists in abundance: in landfills, recycling bins, and on factory floors around the world.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">03</span><span class="t">The loop</span><span class="sub">Four stops, then again.</span></div>
+      <div class="c">
+        <ol class="seq">
+          <li><div><h4>Collect</h4><p>We gather cans, manufacturing scrap, and post-consumer waste from partners and recyclers.</p></div></li>
+          <li><div><h4>Convert</h4><p>Aluminum is prepared as plate fuel and loaded into our electrochemical generation systems.</p></div></li>
+          <li><div><h4>Generate</h4><p>Clean, uninterrupted electricity is produced on site. No grid, no emissions, no noise.</p></div></li>
+          <li><div><h4>Recover</h4><p>Aluminum trihydroxide is collected and sold to secondary markets, completing the loop.</p></div></li>
+        </ol>
+      </div>
+    </section>
+  </div>
+
+  <div class="close">
+    <div class="doc">
+      <h2>Join the loop.</h2>
+      <div style="display:grid;gap:22px">
+        <p class="prose">Whether you recycle aluminum, invest in clean energy, or believe the future should be powered differently, there is a place for you in the AluminAiry ecosystem.</p>
+        <div class="btns"><a class="btn" href="#contact">Work with us</a><a class="link" href="#technology/recycle">Recycle aluminum <span class="arrow">→</span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INVESTORS ================= -->
+<section class="page" id="investors" hidden>
+  <div class="hero sub">
+    <div class="doc">
+      <h1>Invest in<br>aluminum energy.</h1>
+      <div class="row">
+        <div class="intro">
+          <p class="lead">The aluminum-air battery market is projected to reach $23 billion by 2030, across electric vehicles, grid storage, and renewable backup. We are building the generators, the fuel supply, and the materials business underneath it.</p>
+          <div class="btns"><a class="btn" href="#contact/invest">Invest with us</a></div>
+        </div>
+        <figure class="fig r43 duo">
+          <img src="img/CIFAward.jpg" alt="AluminAiry team holding awards at the Clean Innovation Fund ceremony">
+          <figcaption><b>Fig. 1</b> The AluminAiry team at the Clean Innovation Fund award, November 2025.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <dl class="plate four">
+    <div class="doc">
+      <div><dt>Market size by 2030</dt><dd>$23B</dd></div>
+      <div><dt>Projected market growth</dt><dd>2×</dd></div>
+      <div><dt>Annual energy potential</dt><dd>1.3 GWh<small>Landfilled in cans today</small></dd></div>
+      <div><dt>Carbon tax liability</dt><dd>$0</dd></div>
+    </div>
+  </dl>
+
+  <div class="doc">
+    <section class="s">
+      <div class="m"><span class="n">01</span><span class="t">Why AluminAiry</span><span class="sub">The advantages, plainly.</span></div>
+      <div class="c">
+        <div class="kv">
+          <div><span>No critical minerals</span><ul><li>No lithium, cobalt, or nickel. The fuel is aluminum, one of the most abundant and most recycled metals on earth.</li></ul></div>
+          <div><span>Sellable byproduct</span><ul><li>Aluminum trihydroxide has established secondary markets. Operating the system creates a revenue line, not a disposal cost.</li></ul></div>
+          <div><span>Dual-use</span><ul><li>Commercial backup power and U.S. military remote power share the same platform. DEVCOM Army Research Laboratory is among our supporters.</li></ul></div>
+          <div><span>Revenue today</span><ul><li>Energy Materials ships electrodes and membranes to R&amp;D and pilot customers now, while the generator platform scales.</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">02</span><span class="t">Our network</span><span class="sub">Investors, partners, supporters.</span></div>
+      <div class="c">
+        <div class="logos">
+          <img src="img/utResearchFound.png" alt="UT Research Foundation">
+          <img src="img/tickleCollege.png" alt="Tickle College of Engineering" class="sm">
+          <img src="img/haslam.png" alt="Haslam College of Business">
+          <img src="img/devcom.png" alt="DEVCOM Army Research Laboratory">
+          <img src="img/TVA.png" alt="Tennessee Valley Authority" class="sm">
+          <img src="img/sparkAccelerator.png" alt="Spark Cleantech Accelerator">
+          <img src="img/wilsonSonsini.png" alt="Wilson Sonsini" class="sm">
+          <img src="img/CAG.png" alt="Composite Applications Group">
+          <img src="img/vertxPartners.png" alt="Vertx Partners">
+          <img src="img/industrialElectric.png" alt="Industrial Electronics Inc." class="sm">
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">03</span><span class="t">Investor FAQ</span></div>
+      <div class="c">
+        <div class="faq">
+          <details open><summary>What is the size of the aluminum-air battery market?</summary><div class="a">Projected to reach $23 billion by 2030, driven by demand for high-energy-density storage, EV range improvement, and clean backup power across commercial and military sectors.</div></details>
+          <details><summary>What competitive advantages does AluminAiry have?</summary><div class="a">Our technology avoids critical-mineral dependencies (no lithium, cobalt, or nickel), uses an abundant and recyclable fuel, generates a sellable byproduct, requires no grid connection, and produces zero emissions.</div></details>
+          <details><summary>How can I invest or partner with AluminAiry?</summary><div class="a">Use the contact form or email <a href="mailto:bwashington@aluminairy.com">bwashington@aluminairy.com</a>. We welcome conversations with investors, strategic partners, research institutions, and recycling organizations.</div></details>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="close">
+    <div class="doc">
+      <h2>Talk to<br>the founder.</h2>
+      <div class="clist">
+        <div><span>Founder</span><span>Brian Washington, Founder and CEO</span></div>
+        <div><span>Email</span><a href="mailto:bwashington@aluminairy.com">bwashington@aluminairy.com</a></div>
+        <div><span>Phone</span><a href="tel:+12053944282">205-394-4282</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NEWS ================= -->
+<section class="page" id="news" hidden>
+  <div class="hero sub">
+    <div class="doc">
+      <h1>Aluminum-air,<br>explained.</h1>
+      <div class="row">
+        <div class="intro">
+          <p class="lead">Deep dives on the technology, the clean-energy market, and the economics of recycled-aluminum power. Plus company news.</p>
+        </div>
+        <div class="chips" role="group" aria-label="Filter posts" style="align-self:end">
+          <button aria-pressed="true" data-cat="all">All</button>
+          <button aria-pressed="false" data-cat="roi">Savings &amp; ROI</button>
+          <button aria-pressed="false" data-cat="tech">Technology</button>
+          <button aria-pressed="false" data-cat="market">Market</button>
+          <button aria-pressed="false" data-cat="sustain">Sustainability</button>
+          <button aria-pressed="false" data-cat="company">Company</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="doc" style="padding-bottom:clamp(48px,6vw,88px)">
+    <div class="news" id="newsList">
+      <article data-cat="roi"><img src="img/hospitalPower.png" alt="Hospital emergency entrance at dusk"><div><div class="meta"><span class="cat">Savings &amp; ROI</span><span>April 15, 2026</span><span>9 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminum-air-vs-diesel-total-cost-of-ownership">Total cost of ownership: aluminum-air backup power vs. diesel generators</a></h3><p>Diesel generators win on sticker price and lose on everything else. A total-cost-of-ownership framework for operations and finance leaders evaluating clean backup power.</p></div></article>
+      <article data-cat="tech"><img src="img/aluminairyTech.png" alt="Aluminum-air cell diagram"><div><div class="meta"><span class="cat">Technology</span><span>April 2, 2026</span><span>9 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminum-air-battery-record-power-density-explained">How aluminum-air batteries reached record power density: the science of film tuning</a></h3><p>A 2026 peer-reviewed study pushed aluminum-air power density to a record 710 mW/cm² by managing the aluminum product layer. What changed, and why it matters for clean energy.</p></div></article>
+      <article data-cat="tech"><img src="img/aluminairyConcept.png" alt="AluminAiry generator concepts"><div><div class="meta"><span class="cat">Technology</span><span>March 18, 2026</span><span>8 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminum-air-vs-lithium-ion-batteries-comparison">Aluminum-air vs. lithium-ion batteries: a practical comparison for 2026</a></h3><p>A grounded comparison of energy density, safety, cost, sourcing, and the trade-offs that decide which chemistry fits which job.</p></div></article>
+      <article data-cat="market"><img src="img/Science.jpg" alt="Laboratory flask" style="object-position:100% 50%"><div><div class="meta"><span class="cat">Market</span><span>February 25, 2026</span><span>7 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminum-air-battery-market-outlook-2030">The aluminum-air battery market: growth outlook through 2030 and beyond</a></h3><p>Analyst estimates vary widely, but the direction is consistent: up. A clear-eyed look at the numbers, the drivers, and where the real opportunity sits.</p></div></article>
+      <article data-cat="roi"><img src="img/BackupPower.jpg" alt="Houses during a lightning storm at night"><div><div class="meta"><span class="cat">Savings &amp; ROI</span><span>February 10, 2026</span><span>8 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminum-air-backup-power-roi-savings">The ROI of aluminum-air backup power: how recycled aluminum becomes savings</a></h3><p>Backup power is usually a sunk cost. Aluminum-air reframes it as an investment. Here is how the ROI math works.</p></div></article>
+      <article data-cat="sustain"><img src="img/aluminairyRecycling.jpg" alt="Crushed aluminum cans"><div><div class="meta"><span class="cat">Sustainability</span><span>January 28, 2026</span><span>6 min read</span></div><h3><a href="https://www.aluminairy.com/news/recycling-aluminum-cans-into-clean-energy">From recycling bin to power source: how aluminum cans become clean energy</a></h3><p>Most aluminum cans still end up in landfills, taking their embedded energy with them. Aluminum-air offers a second life.</p></div></article>
+      <article data-cat="company"><img src="img/CIFAward.jpg" alt="AluminAiry team at the Clean Innovation Fund award ceremony"><div><div class="meta"><span class="cat">Company</span><span>November 12, 2025</span><span>2 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminairy-wins-cif-award">AluminAiry wins Clean Innovation Fund award</a></h3><p>Recognized for breakthrough work in aluminum-air energy generation, securing new funding to scale our circular energy platform.</p></div></article>
+      <article data-cat="company"><img src="img/TeknovationImage.png" alt="Two AluminAiry founders in UT polo shirts"><div><div class="meta"><span class="cat">Company</span><span>September 28, 2025</span><span>2 min read</span></div><h3><a href="https://www.aluminairy.com/news/teknovation-feature">AluminAiry featured at Teknovation showcase</a></h3><p>Our team presented the aluminum-air generator to regional investors and partners, highlighting the path to grid-independent clean power.</p></div></article>
+      <article data-cat="company"><img src="img/sparkAccelerator.png" alt="Spark Cleantech Accelerator logo" style="object-fit:contain;background:#fff;padding:12px"><div><div class="meta"><span class="cat">Company</span><span>August 5, 2025</span><span>2 min read</span></div><h3><a href="https://www.aluminairy.com/news/spark-accelerator">AluminAiry joins the Spark Cleantech Accelerator cohort</a></h3><p>Mentorship, lab space, and a network of clean-energy partners across the Tennessee Valley.</p></div></article>
+    </div>
+    <p class="cite" id="newsEmpty" hidden style="padding:24px 0">No posts in this category yet.</p>
+  </div>
+  <div class="close">
+    <div class="doc">
+      <h2>Clean energy insights,<br>occasionally.</h2>
+      <form class="f" id="subForm"><label>Email<input type="email" name="email" required placeholder="you@company.com"></label><div class="btns"><button class="btn" type="submit">Subscribe</button><span class="small">No spam. Unsubscribe any time.</span></div></form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="page" id="contact" hidden>
+  <div class="hero sub">
+    <div class="doc">
+      <h1>Let's build<br>together.</h1>
+      <div class="row">
+        <div class="intro">
+          <p class="lead">Whether you're looking to invest, partner, recycle aluminum, or learn more about aluminum-air energy, we want to hear from you.</p>
+          <div class="clist">
+            <div><span>Email</span><a href="mailto:bwashington@aluminairy.com">bwashington@aluminairy.com</a></div>
+            <div><span>Materials</span><a href="mailto:info@aluminairy.com">info@aluminairy.com</a></div>
+            <div><span>Phone</span><a href="tel:+12053944282">205-394-4282</a></div>
+            <div><span>Office</span><span>Knoxville, Tennessee</span></div>
+          </div>
+        </div>
+        <figure class="fig r43">
+          <img src="img/TeknovationImage.png" alt="Two AluminAiry founders standing outside a brick building in University of Tennessee polo shirts">
+          <figcaption><b>Fig. 1</b> The AluminAiry team, Knoxville.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="doc">
+    <section class="s">
+      <div class="m"><span class="n">01</span><span class="t">Send a message</span><span class="sub">Opens a pre-filled email. Nothing is stored here.</span></div>
+      <div class="c">
+        <form class="f" id="contactForm" style="max-width:720px">
+          <div class="row">
+            <label>Your name<input name="name" required></label>
+            <label>Email address<input name="email" type="email" required></label>
+          </div>
+          <label>Subject<select name="subject" id="subjectSel">
+            <option value="General Inquiry">General inquiry</option>
+            <option value="Investment Opportunity">Investment opportunity</option>
+            <option value="Partnership / R&D">Partnership / R&amp;D</option>
+            <option value="Aluminum Recycling">Aluminum recycling</option>
+            <option value="TCO Analysis Request">Backup power TCO analysis</option>
+            <option value="Energy Materials Quote">Energy materials quote</option>
+            <option value="Media / Press">Media / press</option>
+          </select></label>
+          <label>Message<textarea name="message" required></textarea></label>
+          <div class="btns"><button class="btn" type="submit">Send message</button></div>
+        </form>
+      </div>
+    </section>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="doc">
+    <div class="cols">
+      <div>
+        <img class="wm2" src="img/logo.png" alt="AluminAiry" width="220" height="18">
+        <p class="about">Aluminum-air generators and energy materials. Turning overlooked aluminum waste into uninterrupted clean energy, from Knoxville, Tennessee.</p>
+      </div>
+      <div><h4>Company</h4><ul><li><a href="#mission">Mission</a></li><li><a href="#technology">Technology</a></li><li><a href="#solutions">Solutions</a></li><li><a href="#materials">Materials</a></li><li><a href="#investors">Investors</a></li><li><a href="#news">News</a></li></ul></div>
+      <div><h4>Technology</h4><ul><li><a href="#technology/how-it-works">How it works</a></li><li><a href="#technology/applications">Applications</a></li><li><a href="#technology/recycle">Recycle with us</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="#contact">Contact us</a></li><li><a href="#investors">Invest</a></li><li><a href="mailto:bwashington@aluminairy.com">bwashington@aluminairy.com</a></li><li><a href="tel:+12053944282">205-394-4282</a></li></ul></div>
+    </div>
+    <div class="base"><span>© 2026 AluminAiry. All rights reserved.</span><span>Aluminum-air battery technology · Clean energy · Circular economy</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav.nav a'));
+  var nav = document.getElementById('nav');
+  var burger = document.getElementById('burger');
+
+  function route(){
+    var h = (location.hash || '#home').slice(1);
+    var parts = h.split('/');
+    var id = parts[0] || 'home';
+    var sub = parts[1];
+    var found = pages.some(function(p){ return p.id === id; });
+    if(!found){ id = 'home'; sub = null; }
+    pages.forEach(function(p){ p.hidden = (p.id !== id); });
+    links.forEach(function(a){
+      var target = a.getAttribute('href').slice(1).split('/')[0];
+      if(target === id){ a.setAttribute('aria-current','page'); } else { a.removeAttribute('aria-current'); }
+    });
+    nav.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+    if(id === 'contact' && sub){
+      var sel = document.getElementById('subjectSel');
+      var map = {tco:'TCO Analysis Request', quote:'Energy Materials Quote', invest:'Investment Opportunity', recycle:'Aluminum Recycling'};
+      if(sel && map[sub]) sel.value = map[sub];
+    }
+    if(sub){
+      var el = document.getElementById(sub);
+      if(el){ el.scrollIntoView({block:'start'}); return; }
+    }
+    window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange', route);
+  route();
+
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  // news filter
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chips button'));
+  var posts = Array.prototype.slice.call(document.querySelectorAll('#newsList article'));
+  var empty = document.getElementById('newsEmpty');
+  chips.forEach(function(b){
+    b.addEventListener('click', function(){
+      var cat = b.getAttribute('data-cat');
+      chips.forEach(function(c){ c.setAttribute('aria-pressed', c === b ? 'true' : 'false'); });
+      var n = 0;
+      posts.forEach(function(p){ var show = cat === 'all' || p.getAttribute('data-cat') === cat; p.hidden = !show; if(show) n++; });
+      empty.hidden = n > 0;
+    });
+  });
+
+  // forms open a pre-filled email (static mockup, no backend)
+  function mailto(to, subject, body){
+    location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+  var cf = document.getElementById('contactForm');
+  if(cf) cf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = new FormData(cf);
+    mailto('bwashington@aluminairy.com', '[aluminairy.com] ' + d.get('subject'),
+      d.get('message') + '\n\n— ' + d.get('name') + ' <' + d.get('email') + '>');
+  });
+  var rf = document.getElementById('recycleForm');
+  if(rf) rf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = new FormData(rf);
+    var types = d.getAll('type').join(', ') || 'Not specified';
+    var body = 'Recycling request\n\nName: ' + d.get('name') + '\nEmail: ' + d.get('email') +
+      '\nAddress: ' + [d.get('street'), d.get('city'), d.get('state'), d.get('zip'), d.get('country')].filter(Boolean).join(', ') +
+      '\nMaterial: ' + types + '\nQuantity (lbs): ' + (d.get('qty') || 'Not specified');
+    mailto('bwashington@aluminairy.com', '[aluminairy.com] Recycling request', body);
+  });
+  var sf = document.getElementById('subForm');
+  if(sf) sf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var d = new FormData(sf);
+    mailto('info@aluminairy.com', 'Subscribe: Clean Energy Insights', 'Please add ' + d.get('email') + ' to the insights list.');
+  });
+})();
+</script>
