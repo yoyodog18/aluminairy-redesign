@@ -132,7 +132,7 @@ nav.nav a.cta:hover{background:var(--orange);color:#fff}
 .s .m .sub{font-size:13px;color:var(--mute);max-width:20ch;line-height:1.4}
 .s .c{display:grid;gap:clamp(28px,3.5vw,48px);min-width:0}
 .s h2{max-width:22ch}
-@media (max-width:860px){.s{grid-template-columns:1fr;gap:24px}.s .m{position:static;grid-template-columns:auto 1fr;align-items:baseline;gap:14px}.s .m .sub{display:none}}
+@media (max-width:860px){.s{grid-template-columns:1fr;gap:28px}.s .m{position:static;grid-template-columns:auto 1fr;align-items:baseline;gap:16px;padding-bottom:12px;border-bottom:1px solid var(--rule)}.s .m .n{font-size:34px}.s .m .sub{display:none}}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px);align-items:start}
 .split.mid{align-items:center}
 @media (max-width:760px){.split{grid-template-columns:1fr}}
@@ -175,6 +175,7 @@ table .serif{font-family:"Source Serif 4",serif;font-size:16px}
 .seq h4{margin-bottom:4px;font-size:19px}
 .seq p{color:var(--ink2);font-size:17px;max-width:48ch}
 .seq{margin:0;padding:0}
+@media (max-width:600px){.seq > li{grid-template-columns:56px 1fr;gap:18px}}
 
 /* ============ diagram ============ */
 .diagram{width:100%;height:auto;font-family:"Archivo",sans-serif}
@@ -222,7 +223,7 @@ table .serif{font-family:"Source Serif 4",serif;font-size:16px}
 .news h3 a{text-decoration:none}
 .news h3 a:hover{color:var(--orange-ink)}
 .news p{color:var(--ink2);font-size:16.5px;max-width:66ch}
-@media (max-width:560px){.news > article{grid-template-columns:1fr}.news img{max-width:200px}}
+@media (max-width:560px){.news > article{grid-template-columns:1fr;justify-items:center;text-align:center;gap:16px}.news img{max-width:220px}.news .meta{justify-content:center}.news p{margin:0 auto}.news h3{text-wrap:balance}}
 .chips{display:flex;flex-wrap:wrap;gap:8px;font-family:"Archivo",sans-serif}
 .chips button{font:inherit;font-size:14px;font-weight:500;background:transparent;border:1.5px solid var(--rule);color:var(--ink2);padding:7px 12px;cursor:pointer}
 .chips button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
