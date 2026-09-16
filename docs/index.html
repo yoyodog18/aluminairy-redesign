@@ -210,6 +210,7 @@ table .serif{font-family:"Source Serif 4",serif;font-size:16px}
 .logos{background:var(--logo-paper);border:1px solid var(--rule);padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(20px,3vw,36px) clamp(16px,3vw,40px);align-items:center}
 .logos img{width:100%;max-height:52px;object-fit:contain;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.05);opacity:.8}
 .logos img.sm{max-height:42px}
+.logos img.seal{max-height:64px;filter:grayscale(1) contrast(1.15);opacity:.85}
 @media (max-width:900px){.logos{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:560px){.logos{grid-template-columns:repeat(2,1fr)}}
 
@@ -267,6 +268,29 @@ form.f .opts input{width:auto;accent-color:var(--orange)}
 .quote{font-size:clamp(20px,1.8vw,24px);line-height:1.4;font-style:italic;max-width:46ch;border-left:3px solid var(--orange);padding-left:20px}
 .quote cite{display:block;font-style:normal;font-family:"Archivo",sans-serif;font-size:13.5px;color:var(--mute);margin-top:10px}
 
+/* ============ article ============ */
+.post{max-width:760px;margin:0 auto;padding-bottom:20px}
+.post-h{display:grid;gap:14px;margin:18px 0 28px}
+.post .meta{font-family:"Archivo",sans-serif;font-size:13.5px;color:var(--mute);display:flex;gap:14px;flex-wrap:wrap}
+.post .meta .cat{color:var(--orange-ink);font-weight:600}
+.post-title{font-stretch:100%;text-transform:none;font-size:clamp(30px,4.2vw,50px);line-height:1.08;letter-spacing:-.015em;font-weight:700}
+.post-fig{margin-bottom:32px}
+.post-body{font-size:18.5px;line-height:1.6}
+.post-body p{margin:0 0 1.1em}
+.post-body h3{font-size:24px;margin:1.6em 0 .5em}
+.post-body h4{font-size:18px;margin:1.3em 0 .4em}
+.post-body ul{margin:0 0 1.1em;padding-left:1.2em}
+.post-body li{margin-bottom:.4em}
+.post-body li::marker{color:var(--orange)}
+.post-body .cite{margin:0 0 1.4em;border-left:3px solid var(--rule);padding-left:14px}
+.post-body a{color:var(--orange-ink)}
+.post-by{font-family:"Archivo",sans-serif;font-size:13.5px;color:var(--mute);border-top:1px solid var(--rule);padding-top:16px;margin-top:8px}
+.plate.three .doc{grid-template-columns:repeat(3,1fr)}
+.plate.six .doc{grid-template-columns:repeat(6,1fr)}
+@media (max-width:1100px){.plate.six .doc{grid-template-columns:repeat(3,1fr)}.plate.six .doc > div:nth-child(3n){border-right:0;margin-right:0}.plate.six .doc > div{border-bottom:1px solid var(--al2)}}
+@media (max-width:900px){.plate.three .doc{grid-template-columns:1fr 1fr}.plate.six .doc{grid-template-columns:1fr 1fr}.plate.six .doc > div:nth-child(3n){border-right:1px solid var(--al2);margin-right:24px}.plate.six .doc > div:nth-child(2n){border-right:0;margin-right:0}}
+@media (max-width:520px){.plate.three .doc,.plate.six .doc{grid-template-columns:1fr}.plate.six .doc > div{border-right:0;margin-right:0}}
+
 /* ============ closing ============ */
 .close{border-top:2px solid var(--rule2);padding:clamp(40px,5vw,72px) 0}
 .close .doc{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,64px);align-items:end}
@@ -321,7 +345,6 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         </div>
         <figure class="fig r43 duo">
           <img src="img/TechnologyPageBanner.jpg" alt="Gloved hands connecting electrolyte lines to an aluminum-air test cell on a lab bench">
-          <figcaption><b>Fig. 0</b> Aluminum-air test cell under load. AluminAiry lab, Knoxville, Tennessee.</figcaption>
         </figure>
         <nav class="toc" aria-label="On this page">
           <span class="h">Contents</span>
@@ -459,7 +482,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
             <h2>About 1.3 GWh of energy is buried every year in cans alone.</h2>
             <p class="prose">Sixty percent of aluminum cans in the United States end up in a landfill, and the energy that went into smelting them goes with them. Our generators pull that energy back out as electricity, and the aluminum trihydroxide that remains is sold into secondary markets. The loop has four stops.</p>
             <ol class="seq">
-              <li><div><h4>Collect</h4><p>Cans, manufacturing scrap, and post-consumer aluminum from partners and recyclers.</p></div></li>
+              <li><div><h4>Secure</h4><p>Aluminum, pre- and post-consumer, in all forms from suppliers, partners, and recyclers.</p></div></li>
               <li><div><h4>Convert</h4><p>Aluminum is prepared as plate fuel and loaded into the generator.</p></div></li>
               <li><div><h4>Generate</h4><p>Electricity is produced on site. No grid, no emissions, no noise.</p></div></li>
               <li><div><h4>Recover</h4><p>Aluminum trihydroxide is collected and sold, and the cycle starts again.</p></div></li>
@@ -484,12 +507,11 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <img src="img/devcom.png" alt="DEVCOM Army Research Laboratory">
           <img src="img/TVA.png" alt="Tennessee Valley Authority" class="sm">
           <img src="img/sparkAccelerator.png" alt="Spark Cleantech Accelerator">
-          <img src="img/wilsonSonsini.png" alt="Wilson Sonsini" class="sm">
-          <img src="img/CAG.png" alt="Composite Applications Group">
+          <img src="img/doe.png" alt="U.S. Department of Energy" class="seal">
+          <img src="img/ornl.png" alt="Oak Ridge National Laboratory">
           <img src="img/vertxPartners.png" alt="Vertx Partners">
-          <img src="img/industrialElectric.png" alt="Industrial Electronics Inc." class="sm">
         </div>
-        <p class="small">Founded in Knoxville, Tennessee. Supported by the University of Tennessee Research Foundation, the Tickle College of Engineering, the Haslam College of Business, DEVCOM Army Research Laboratory, and the Tennessee Valley Authority. Winner of the Clean Innovation Fund award, 2025.</p>
+        <p class="small">Founded in Knoxville, Tennessee. Supported by the University of Tennessee Research Foundation, the Tickle College of Engineering, the Haslam College of Business, DEVCOM Army Research Laboratory, the Tennessee Valley Authority, and the Department of Energy (DOE). Winner of the University of Tennessee Chancellor's Innovation Fund award, 2025, and the TVA x Spark Award, 2024.</p>
       </div>
     </section>
 
@@ -497,9 +519,9 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <div class="m"><span class="n">06</span><span class="t">News</span><span class="sub"><a class="link" href="#news">All posts →</a></span></div>
       <div class="c">
         <div class="news">
-          <article><img src="img/hospitalPower.png" alt="Hospital emergency entrance at dusk"><div><div class="meta"><span class="cat">Savings &amp; ROI</span><span>April 15, 2026</span></div><h3><a href="#news">Total cost of ownership: aluminum-air backup power vs. diesel generators</a></h3><p>Diesel wins on sticker price and loses on everything else. A framework for operations and finance leaders.</p></div></article>
-          <article><img src="img/aluminairyTech.png" alt="Aluminum-air cell diagram"><div><div class="meta"><span class="cat">Technology</span><span>April 2, 2026</span></div><h3><a href="#news">How aluminum-air batteries reached record power density</a></h3><p>A peer-reviewed study pushed peak power density to 710 mW/cm² by managing the aluminum product film. What changed, and why it matters.</p></div></article>
-          <article><img src="img/CIFAward.jpg" alt="AluminAiry team holding awards at the Clean Innovation Fund ceremony"><div><div class="meta"><span class="cat">Company</span><span>November 12, 2025</span></div><h3><a href="#news">AluminAiry wins Clean Innovation Fund award</a></h3><p>Recognized for breakthrough work in aluminum-air energy generation, with new funding to scale the platform.</p></div></article>
+          <article><img src="img/hospitalPower.png" alt="Hospital emergency entrance at dusk"><div><div class="meta"><span class="cat">Savings &amp; ROI</span><span>April 15, 2026</span></div><h3><a href="#post/aluminum-air-vs-diesel-total-cost-of-ownership">Total cost of ownership: aluminum-air backup power vs. diesel generators</a></h3><p>Diesel wins on sticker price and loses on everything else. A framework for operations and finance leaders.</p></div></article>
+          <article><img src="img/aluminairyTech.png" alt="Aluminum-air cell diagram"><div><div class="meta"><span class="cat">Technology</span><span>April 2, 2026</span></div><h3><a href="#post/aluminum-air-battery-record-power-density-explained">How aluminum-air batteries reached record power density</a></h3><p>A peer-reviewed study pushed peak power density to 710 mW/cm² by managing the aluminum product film. What changed, and why it matters.</p></div></article>
+          <article><img src="img/CIFAward.jpg" alt="AluminAiry team holding awards at the Chancellor's Innovation Fund ceremony"><div><div class="meta"><span class="cat">Company</span><span>November 12, 2025</span></div><h3><a href="#post/aluminairy-wins-cif-award">AluminAiry wins the Chancellor's Innovation Fund award</a></h3><p>Recognized for breakthrough work in aluminum-air energy generation, with new funding to scale the platform.</p></div></article>
         </div>
       </div>
     </section>
@@ -509,10 +531,9 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     <div class="doc">
       <h2>Bring us your aluminum.<br>Or your capital.</h2>
       <div style="display:grid;gap:22px">
-        <p class="prose">Recyclers, facilities operators, research partners, and investors all have a place in the loop. Brian Washington, our founder, reads every message.</p>
+        <p class="prose">Recyclers, facilities operators, research partners, and investors all have a place in the loop.</p>
         <div class="clist">
-          <div><span>Email</span><a href="mailto:bwashington@aluminairy.com">bwashington@aluminairy.com</a></div>
-          <div><span>Phone</span><a href="tel:+12053944282">205-394-4282</a></div>
+          <div><span>Email</span><a href="mailto:info@aluminairy.com">info@aluminairy.com</a></div>
           <div><span>Office</span><span>Knoxville, Tennessee</span></div>
         </div>
         <div class="btns"><a class="btn" href="#contact">Contact us</a><a class="link" href="#investors">Investor information <span class="arrow">→</span></a></div>
@@ -533,17 +554,17 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         </div>
         <figure class="fig r43 duo">
           <img src="img/contactusalumin.jpg" alt="Researcher in a lab coat adjusting instrumentation on a test bench surrounded by cabling">
-          <figcaption><b>Fig. 1</b> Cell characterization, AluminAiry lab.</figcaption>
         </figure>
       </div>
     </div>
   </div>
 
-  <dl class="plate">
+  <dl class="plate six">
     <div class="doc">
       <div><dt>Per-cell voltage</dt><dd>1.0–1.2 V</dd></div>
       <div><dt>System voltages</dt><dd>12 · 24 · 60 V<small>Cells in series</small></dd></div>
-      <div><dt>EV range potential</dt><dd>1,500 mi<small>Per refuel</small></dd></div>
+      <div><dt>Backup power</dt><dd>Up to 60 h<small>From a single refuel</small></dd></div>
+      <div><dt>Energy cost</dt><dd>~$40/kWh<small>System manufacturing</small></dd></div>
       <div><dt>Electrolyte base</dt><dd>H₂O<small>Non-flammable</small></dd></div>
       <div><dt>Byproduct</dt><dd>ATH<small>Aluminum trihydroxide, sellable</small></dd></div>
     </div>
@@ -582,7 +603,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
               <path class="flow" d="M228 286 V372 H160"/><path class="flow" d="M168 367 L160 372 L168 377"/>
               <text class="lbl" x="152" y="376" text-anchor="end">Al(OH)₃ out, sold</text>
             </svg>
-            <figcaption><b>Fig. 2</b> Aluminum-air cell, cross-section. Not to scale.</figcaption>
+            <figcaption><b>Fig. 1</b> Aluminum-air cell, cross-section. Not to scale.</figcaption>
           </figure>
           <div style="display:grid;gap:22px">
             <div class="prose">
@@ -629,7 +650,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
               <text class="t" x="580" y="140" text-anchor="middle">800</text>
               <text class="t" x="580" y="162" text-anchor="end">Peak power density, mW/cm²</text>
             </svg>
-            <figcaption><b>Fig. 3</b> Peak power density, baseline vs. film-tuned cell.</figcaption>
+            <figcaption><b>Fig. 2</b> Peak power density, baseline vs. film-tuned cell.</figcaption>
           </figure>
         </div>
       </div>
@@ -641,7 +662,6 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <div class="split mid">
           <figure class="fig r43 duo">
             <img src="img/TechnologyPageBanner.jpg" alt="Gloved hands connecting electrolyte lines to an aluminum-air test cell">
-            <figcaption><b>Fig. 4</b> Plate-swap fixture on a bench cell.</figcaption>
           </figure>
           <div class="prose">
             <p>A lithium battery has to sit on a charger. A diesel generator has to be topped off from a truck. An aluminum-air generator is refueled by removing the spent plates and inserting fresh ones. The exchange is mechanical and takes minutes.</p>
@@ -658,7 +678,6 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <div><span>Residential</span><ul><li>Long-duration home backup that works through any grid outage or natural disaster, with no fuel stored in the garage.</li></ul></div>
           <div><span>Critical infrastructure</span><ul><li>Hospitals, data centers, and emergency services need power that never fails and never burns.</li></ul></div>
           <div><span>Remote &amp; off-grid</span><ul><li>Military bases, field operations, and off-grid communities. No pipeline, no grid connection, no diesel resupply convoy.</li></ul></div>
-          <div><span>Electric vehicles</span><ul><li>Up to 1,500 miles per refuel at a fraction of the pack weight of lithium-ion.</li></ul></div>
         </div>
       </div>
     </section>
@@ -787,11 +806,10 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <div class="row">
         <div class="intro">
           <p class="lead">Gas diffusion electrodes, catalyst-coated membranes, and catalysts for fuel cells, metal-air batteries, and flow batteries. Small-batch and pilot-scale, made in the United States, delivered faster and cheaper than large-scale manufacturers.</p>
-          <div class="btns"><a class="btn" href="#contact/quote">Get a quote</a><a class="link" href="tel:+12053944282">205-394-4282</a></div>
+          <div class="btns"><a class="btn" href="#contact/quote">Get a quote</a><a class="link" href="mailto:info@aluminairy.com">info@aluminairy.com</a></div>
         </div>
         <figure class="fig r43">
           <img src="img/EnergyMaterialsPageBanner.jpg" alt="Black gas diffusion layer carbon paper sheets and a cut disc on a blue surface">
-          <figcaption><b>Fig. 1</b> Gas diffusion layers, sheet and disc form factors.</figcaption>
         </figure>
       </div>
     </div>
@@ -849,7 +867,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           </div>
           <figure class="fig">
             <img src="img/materials-sheet.jpg" alt="AluminAiry Energy Materials one-page capabilities sheet listing catalysts, substrates, loadings, and form factors" style="aspect-ratio:auto;border:1px solid var(--rule)">
-            <figcaption><b>Fig. 2</b> Capabilities sheet, AluminAiry Energy Materials.</figcaption>
+
           </figure>
         </div>
       </div>
@@ -861,7 +879,6 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <h2>Tell us the spec.<br>We'll price the run.</h2>
       <div class="clist">
         <div><span>Email</span><a href="mailto:info@aluminairy.com">info@aluminairy.com</a></div>
-        <div><span>Phone</span><a href="tel:+12053944282">205-394-4282</a></div>
         <div><span>Office</span><span>Knoxville, Tennessee</span></div>
       </div>
     </div>
@@ -879,7 +896,6 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         </div>
         <figure class="fig r43 duo">
           <img src="img/aluminairyRocks.png" alt="Pallets of compressed aluminum scrap bales stacked inside a warehouse">
-          <figcaption><b>Fig. 1</b> Baled aluminum scrap, ready for conversion to plate fuel.</figcaption>
         </figure>
       </div>
     </div>
@@ -887,31 +903,46 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
   <div class="doc">
     <section class="s">
-      <div class="m"><span class="n">01</span><span class="t">The problem</span><span class="sub">Energy buried with the cans.</span></div>
+      <div class="m"><span class="n">01</span><span class="t">The problem</span><span class="sub">Outages cost more every year.</span></div>
       <div class="c">
-        <h2>Sixty percent of aluminum cans end up in a landfill.</h2>
+        <h2>Power outages are causing major loss to the U.S. economy.</h2>
         <div class="split">
           <div class="prose">
-            <p>Aluminum is one of the most energy-intensive materials to make and one of the easiest to recycle, yet most cans are thrown away. We estimate roughly 1.3 GWh of energy is landfilled each year in cans alone. Energy that could power communities, businesses, and critical infrastructure.</p>
-            <p>We imagine a future where energy is generated from cans and waste products. Instead of discarding them, we convert them into a low-cost fuel for our energy generation systems, turning a disposal problem into a distributed energy asset.</p>
+            <p>Grid infrastructure is aging, severe weather is more frequent, and the default answer, a diesel or gasoline generator, is loud, flammable, high-maintenance, and often not running when it is needed. The people and facilities that can least afford to lose power are usually the ones with the least reliable backup.</p>
+            <p>AluminAiry exists to fix backup power. Our aluminum-air generators are silent, non-flammable, grid-independent, and refueled by swapping aluminum plates. Recycled aluminum is how we fuel them affordably and sustainably, but the mission is uninterrupted power for the homes, facilities, and field operations that cannot go dark.</p>
           </div>
           <dl class="kv" style="align-self:start">
-            <div><span>Cans landfilled</span><ul><li class="num">60% of U.S. aluminum cans</li></ul></div>
-            <div><span>Energy lost</span><ul><li class="num">≈ 1.3 GWh per year, cans alone</li></ul></div>
-            <div><span>Zero-emission operation</span><ul><li class="num">100%</li></ul></div>
-            <div><span>Critical minerals</span><ul><li class="num">None. No lithium, cobalt, or nickel</li></ul></div>
+            <div><span>U.S. economic loss</span><ul><li class="num">&gt; $150 billion per year from power outages</li></ul></div>
+            <div><span>Residential cost</span><ul><li class="num">Up to $800 per outage, per household</li></ul></div>
+            <div><span>Root causes</span><ul><li>Unstable grid infrastructure</li><li>Natural weather disasters</li><li>Unsafe and unreliable backup power</li></ul></div>
           </dl>
         </div>
       </div>
     </section>
 
     <section class="s">
-      <div class="m"><span class="n">02</span><span class="t">Circular economy</span><span class="sub">The technology sits at the center.</span></div>
+      <div class="m"><span class="n">02</span><span class="t">The impact</span><span class="sub">What we are building toward.</span></div>
+      <div class="c">
+        <h2>Countless hours of outages prevented for our customers.</h2>
+        <p class="prose">By 2029, with 5,000 units and 32,500 refuel kits in the field across 4,000+ customers, we project:</p>
+        <dl class="plate three" style="margin:0;border-top:2px solid var(--rule2)">
+          <div class="doc" style="padding:0">
+            <div><dt>Hours of outages prevented</dt><dd>750K</dd></div>
+            <div><dt>Outage losses avoided</dt><dd>$9M</dd></div>
+            <div><dt>CO₂ avoided</dt><dd>800 tons</dd></div>
+          </div>
+        </dl>
+        <p class="cite">Projections based on AluminAiry deployment model. Aluminum cans are part of the solution: we estimate roughly 1.3 GWh of energy is landfilled each year in cans alone, and 60% of U.S. aluminum cans end up in a landfill. Fueling generators with that aluminum turns a disposal problem into distributed backup power.</p>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">03</span><span class="t">Circular economy</span><span class="sub">The technology sits at the center.</span></div>
       <div class="c">
         <div class="split mid">
           <figure class="fig">
             <img src="img/aluminairyProcess.png" alt="Diagram of the AluminAiry circular economy: consumer aluminum feeds energy extraction, electricity goes to backup and remote applications, byproduct goes to secondary markets and energy is reintegrated" style="aspect-ratio:auto;background:#fff;padding:14px;border:1px solid var(--rule)">
-            <figcaption><b>Fig. 2</b> The circular economy as we run it.</figcaption>
+
           </figure>
           <div class="prose">
             <p>We convert consumer and post-consumer aluminum into energy through electrochemical extraction. The aluminum trihydroxide generated during operation is recovered and sold to secondary markets, creating a second revenue stream.</p>
@@ -922,10 +953,10 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     </section>
 
     <section class="s">
-      <div class="m"><span class="n">03</span><span class="t">The loop</span><span class="sub">Four stops, then again.</span></div>
+      <div class="m"><span class="n">04</span><span class="t">The loop</span><span class="sub">Four stops, then again.</span></div>
       <div class="c">
         <ol class="seq">
-          <li><div><h4>Collect</h4><p>We gather cans, manufacturing scrap, and post-consumer waste from partners and recyclers.</p></div></li>
+          <li><div><h4>Secure</h4><p>We secure aluminum, pre- and post-consumer, in all forms from suppliers, partners, and recyclers.</p></div></li>
           <li><div><h4>Convert</h4><p>Aluminum is prepared as plate fuel and loaded into our electrochemical generation systems.</p></div></li>
           <li><div><h4>Generate</h4><p>Clean, uninterrupted electricity is produced on site. No grid, no emissions, no noise.</p></div></li>
           <li><div><h4>Recover</h4><p>Aluminum trihydroxide is collected and sold to secondary markets, completing the loop.</p></div></li>
@@ -952,12 +983,12 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <h1>Invest in<br>aluminum energy.</h1>
       <div class="row">
         <div class="intro">
-          <p class="lead">The aluminum-air battery market is projected to reach $23 billion by 2030, across electric vehicles, grid storage, and renewable backup. We are building the generators, the fuel supply, and the materials business underneath it.</p>
+          <p class="lead">Our technology serves a $2 billion dual-use backup-power market: rural homes across the Southeast and U.S. forward operating bases worldwide. We are building the generators, the fuel supply, and the materials business underneath it.</p>
           <div class="btns"><a class="btn" href="#contact/invest">Invest with us</a></div>
         </div>
         <figure class="fig r43 duo">
-          <img src="img/CIFAward.jpg" alt="AluminAiry team holding awards at the Clean Innovation Fund ceremony">
-          <figcaption><b>Fig. 1</b> The AluminAiry team at the Clean Innovation Fund award, November 2025.</figcaption>
+          <img src="img/CIFAward.jpg" alt="AluminAiry team holding awards at the Chancellor's Innovation Fund ceremony">
+          <figcaption><b>Fig. 1</b> The AluminAiry team at the Chancellor's Innovation Fund award, November 2025.</figcaption>
         </figure>
       </div>
     </div>
@@ -965,28 +996,95 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
   <dl class="plate four">
     <div class="doc">
-      <div><dt>Market size by 2030</dt><dd>$23B</dd></div>
-      <div><dt>Projected market growth</dt><dd>2×</dd></div>
-      <div><dt>Annual energy potential</dt><dd>1.3 GWh<small>Landfilled in cans today</small></dd></div>
-      <div><dt>Carbon tax liability</dt><dd>$0</dd></div>
+      <div><dt>Revenue from units</dt><dd>$2.3B<small>Addressable</small></dd></div>
+      <div><dt>Recurring revenue</dt><dd>$350M<small>Refuel kits</small></dd></div>
+      <div><dt>5 kW / 60 kWh system</dt><dd>$2,999<small>Per unit</small></dd></div>
+      <div><dt>Refuel kit</dt><dd>$125<small>Per unit</small></dd></div>
     </div>
   </dl>
 
   <div class="doc">
     <section class="s">
-      <div class="m"><span class="n">01</span><span class="t">Why AluminAiry</span><span class="sub">The advantages, plainly.</span></div>
+      <div class="m"><span class="n">01</span><span class="t">Market opportunity</span><span class="sub">Backup power in the Southeast, and beyond.</span></div>
       <div class="c">
-        <div class="kv">
-          <div><span>No critical minerals</span><ul><li>No lithium, cobalt, or nickel. The fuel is aluminum, one of the most abundant and most recycled metals on earth.</li></ul></div>
-          <div><span>Sellable byproduct</span><ul><li>Aluminum trihydroxide has established secondary markets. Operating the system creates a revenue line, not a disposal cost.</li></ul></div>
-          <div><span>Dual-use</span><ul><li>Commercial backup power and U.S. military remote power share the same platform. DEVCOM Army Research Laboratory is among our supporters.</li></ul></div>
-          <div><span>Revenue today</span><ul><li>Energy Materials ships electrodes and membranes to R&amp;D and pilot customers now, while the generator platform scales.</li></ul></div>
+        <h2>Two targets, one platform.</h2>
+        <div class="split">
+          <div>
+            <h3 style="margin-bottom:12px">Rural homes in the Southeast</h3>
+            <div class="kv">
+              <div><span>Target homes</span><ul><li class="num">500,000</li></ul></div>
+              <div><span>Units per household</span><ul><li class="num">1.5 average</li></ul></div>
+              <div><span>Refuels per year</span><ul><li class="num">5 average</li></ul></div>
+            </div>
+          </div>
+          <div>
+            <h3 style="margin-bottom:12px">U.S. forward operating bases</h3>
+            <div class="kv">
+              <div><span>Active FOBs worldwide</span><ul><li class="num">300</li></ul></div>
+              <div><span>Units per FOB</span><ul><li class="num">30–40 average</li></ul></div>
+              <div><span>Refuels per year</span><ul><li class="num">25 average</li></ul></div>
+            </div>
+          </div>
+        </div>
+        <p class="cite">Southeast rural homes are the beachhead: long outages, weak grid, high generator ownership, and TVA in our backyard. Forward operating bases are the dual-use second market, where diesel logistics are the single most expensive and dangerous line item.</p>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">02</span><span class="t">Competitive advantage</span><span class="sub">Automated refuel, efficient cells.</span></div>
+      <div class="c">
+        <h2>Built for market competitiveness.</h2>
+        <div class="split">
+          <div class="kv">
+            <div><span>Operation</span><ul><li>Long lasting, grid independent, all-weather</li></ul></div>
+            <div><span>Safety</span><ul><li>Non-flammable and silent with zero emissions</li></ul></div>
+            <div><span>Refueling</span><ul><li>Automated, continuous energy production on site</li></ul></div>
+            <div><span>Infrastructure</span><ul><li>No expensive infrastructure required</li></ul></div>
+            <div><span>Maintenance</span><ul><li>Low-maintenance systems with no high-level training required</li></ul></div>
+            <div><span>Supply chain</span><ul><li>No lithium, cobalt, or nickel. Fuel is abundant, recyclable aluminum</li></ul></div>
+          </div>
+          <figure class="fig">
+            <svg class="chart" viewBox="0 0 520 420" role="img" aria-label="Competitive landscape: AluminAiry sits in the efficient and automated-refuel quadrant. AlumaPower and Phinergy are efficient but manual refuel. AlAir and Trumony are manual and less efficient.">
+              <line class="ax" x1="260" y1="30" x2="260" y2="390"/>
+              <line class="ax" x1="40" y1="210" x2="480" y2="210"/>
+              <text class="t" x="260" y="20" text-anchor="middle">Efficient</text>
+              <text class="t" x="260" y="410" text-anchor="middle">Inefficient</text>
+              <text class="t" x="40" y="204">Manual refuel</text>
+              <text class="t" x="480" y="204" text-anchor="end">Automated refuel</text>
+              <rect class="b2" x="330" y="60" width="130" height="34"/>
+              <text class="v" x="395" y="82" text-anchor="middle" style="fill:#fff">AluminAiry</text>
+              <rect class="b1" x="95" y="70" width="120" height="30"/>
+              <text class="n" x="155" y="90" text-anchor="middle">AlumaPower</text>
+              <rect class="b1" x="120" y="125" width="100" height="30"/>
+              <text class="n" x="170" y="145" text-anchor="middle">Phinergy</text>
+              <rect class="b1" x="150" y="250" width="80" height="30"/>
+              <text class="n" x="190" y="270" text-anchor="middle">AlAir</text>
+              <rect class="b1" x="80" y="310" width="100" height="30"/>
+              <text class="n" x="130" y="330" text-anchor="middle">Trumony</text>
+            </svg>
+            <figcaption><b>Fig. 2</b> Competitive landscape, aluminum-air systems.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <section class="s">
-      <div class="m"><span class="n">02</span><span class="t">Our network</span><span class="sub">Investors, partners, supporters.</span></div>
+      <div class="m"><span class="n">03</span><span class="t">Savings vs. diesel</span><span class="sub">Based on a 5 kW backup system.</span></div>
+      <div class="c">
+        <h2>Multiple savings opportunities for every customer.</h2>
+        <dl class="plate three" style="margin:0;border-top:2px solid var(--rule2)">
+          <div class="doc" style="padding:0">
+            <div><dt>Initial unit cost</dt><dd>40% lower<small>Per unit vs. diesel</small></dd></div>
+            <div><dt>Maintenance</dt><dd>80% lower<small>Annual cost</small></dd></div>
+            <div><dt>Emissions</dt><dd>210 kg CO₂e<small>Avoided per unit per year</small></dd></div>
+          </div>
+        </dl>
+        <p class="prose">A portable diesel generator is cheap on the shelf and expensive to own. The AluminAiry unit replaces it at a lower purchase price, with no oil changes, filters, or fuel storage, and no combustion. <a class="link" href="#post/aluminum-air-vs-diesel-total-cost-of-ownership">Read the full cost-of-ownership breakdown <span class="arrow">→</span></a></p>
+      </div>
+    </section>
+
+    <section class="s">
+      <div class="m"><span class="n">04</span><span class="t">Our network</span><span class="sub">Investors, partners, supporters.</span></div>
       <div class="c">
         <div class="logos">
           <img src="img/utResearchFound.png" alt="UT Research Foundation">
@@ -995,21 +1093,20 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
           <img src="img/devcom.png" alt="DEVCOM Army Research Laboratory">
           <img src="img/TVA.png" alt="Tennessee Valley Authority" class="sm">
           <img src="img/sparkAccelerator.png" alt="Spark Cleantech Accelerator">
-          <img src="img/wilsonSonsini.png" alt="Wilson Sonsini" class="sm">
-          <img src="img/CAG.png" alt="Composite Applications Group">
+          <img src="img/doe.png" alt="U.S. Department of Energy" class="seal">
+          <img src="img/ornl.png" alt="Oak Ridge National Laboratory">
           <img src="img/vertxPartners.png" alt="Vertx Partners">
-          <img src="img/industrialElectric.png" alt="Industrial Electronics Inc." class="sm">
         </div>
       </div>
     </section>
 
     <section class="s">
-      <div class="m"><span class="n">03</span><span class="t">Investor FAQ</span></div>
+      <div class="m"><span class="n">05</span><span class="t">Investor FAQ</span></div>
       <div class="c">
         <div class="faq">
-          <details open><summary>What is the size of the aluminum-air battery market?</summary><div class="a">Projected to reach $23 billion by 2030, driven by demand for high-energy-density storage, EV range improvement, and clean backup power across commercial and military sectors.</div></details>
+          <details open><summary>What is the size of the market?</summary><div class="a">Our dual-use backup-power target, rural homes in the Southeast and U.S. forward operating bases, represents roughly $2.3 billion in unit revenue plus $350 million in recurring refuel revenue. The broader aluminum-air battery market is projected to reach $23 billion by 2030.</div></details>
           <details><summary>What competitive advantages does AluminAiry have?</summary><div class="a">Our technology avoids critical-mineral dependencies (no lithium, cobalt, or nickel), uses an abundant and recyclable fuel, generates a sellable byproduct, requires no grid connection, and produces zero emissions.</div></details>
-          <details><summary>How can I invest or partner with AluminAiry?</summary><div class="a">Use the contact form or email <a href="mailto:bwashington@aluminairy.com">bwashington@aluminairy.com</a>. We welcome conversations with investors, strategic partners, research institutions, and recycling organizations.</div></details>
+          <details><summary>How can I invest or partner with AluminAiry?</summary><div class="a">Use the contact form or email <a href="mailto:info@aluminairy.com">info@aluminairy.com</a>. We welcome conversations with investors, strategic partners, research institutions, and recycling organizations.</div></details>
         </div>
       </div>
     </section>
@@ -1017,11 +1114,10 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
 
   <div class="close">
     <div class="doc">
-      <h2>Talk to<br>the founder.</h2>
+      <h2>Talk to<br>the team.</h2>
       <div class="clist">
-        <div><span>Founder</span><span>Brian Washington, Founder and CEO</span></div>
-        <div><span>Email</span><a href="mailto:bwashington@aluminairy.com">bwashington@aluminairy.com</a></div>
-        <div><span>Phone</span><a href="tel:+12053944282">205-394-4282</a></div>
+        <div><span>Email</span><a href="mailto:info@aluminairy.com">info@aluminairy.com</a></div>
+        <div><span>Office</span><span>Knoxville, Tennessee</span></div>
       </div>
     </div>
   </div>
@@ -1049,15 +1145,15 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   </div>
   <div class="doc" style="padding-bottom:clamp(48px,6vw,88px)">
     <div class="news" id="newsList">
-      <article data-cat="roi"><img src="img/hospitalPower.png" alt="Hospital emergency entrance at dusk"><div><div class="meta"><span class="cat">Savings &amp; ROI</span><span>April 15, 2026</span><span>9 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminum-air-vs-diesel-total-cost-of-ownership">Total cost of ownership: aluminum-air backup power vs. diesel generators</a></h3><p>Diesel generators win on sticker price and lose on everything else. A total-cost-of-ownership framework for operations and finance leaders evaluating clean backup power.</p></div></article>
-      <article data-cat="tech"><img src="img/aluminairyTech.png" alt="Aluminum-air cell diagram"><div><div class="meta"><span class="cat">Technology</span><span>April 2, 2026</span><span>9 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminum-air-battery-record-power-density-explained">How aluminum-air batteries reached record power density: the science of film tuning</a></h3><p>A 2026 peer-reviewed study pushed aluminum-air power density to a record 710 mW/cm² by managing the aluminum product layer. What changed, and why it matters for clean energy.</p></div></article>
-      <article data-cat="tech"><img src="img/aluminairyConcept.png" alt="AluminAiry generator concepts"><div><div class="meta"><span class="cat">Technology</span><span>March 18, 2026</span><span>8 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminum-air-vs-lithium-ion-batteries-comparison">Aluminum-air vs. lithium-ion batteries: a practical comparison for 2026</a></h3><p>A grounded comparison of energy density, safety, cost, sourcing, and the trade-offs that decide which chemistry fits which job.</p></div></article>
-      <article data-cat="market"><img src="img/Science.jpg" alt="Laboratory flask" style="object-position:100% 50%"><div><div class="meta"><span class="cat">Market</span><span>February 25, 2026</span><span>7 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminum-air-battery-market-outlook-2030">The aluminum-air battery market: growth outlook through 2030 and beyond</a></h3><p>Analyst estimates vary widely, but the direction is consistent: up. A clear-eyed look at the numbers, the drivers, and where the real opportunity sits.</p></div></article>
-      <article data-cat="roi"><img src="img/BackupPower.jpg" alt="Houses during a lightning storm at night"><div><div class="meta"><span class="cat">Savings &amp; ROI</span><span>February 10, 2026</span><span>8 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminum-air-backup-power-roi-savings">The ROI of aluminum-air backup power: how recycled aluminum becomes savings</a></h3><p>Backup power is usually a sunk cost. Aluminum-air reframes it as an investment. Here is how the ROI math works.</p></div></article>
-      <article data-cat="sustain"><img src="img/aluminairyRecycling.jpg" alt="Crushed aluminum cans"><div><div class="meta"><span class="cat">Sustainability</span><span>January 28, 2026</span><span>6 min read</span></div><h3><a href="https://www.aluminairy.com/news/recycling-aluminum-cans-into-clean-energy">From recycling bin to power source: how aluminum cans become clean energy</a></h3><p>Most aluminum cans still end up in landfills, taking their embedded energy with them. Aluminum-air offers a second life.</p></div></article>
-      <article data-cat="company"><img src="img/CIFAward.jpg" alt="AluminAiry team at the Clean Innovation Fund award ceremony"><div><div class="meta"><span class="cat">Company</span><span>November 12, 2025</span><span>2 min read</span></div><h3><a href="https://www.aluminairy.com/news/aluminairy-wins-cif-award">AluminAiry wins Clean Innovation Fund award</a></h3><p>Recognized for breakthrough work in aluminum-air energy generation, securing new funding to scale our circular energy platform.</p></div></article>
-      <article data-cat="company"><img src="img/TeknovationImage.png" alt="Two AluminAiry founders in UT polo shirts"><div><div class="meta"><span class="cat">Company</span><span>September 28, 2025</span><span>2 min read</span></div><h3><a href="https://www.aluminairy.com/news/teknovation-feature">AluminAiry featured at Teknovation showcase</a></h3><p>Our team presented the aluminum-air generator to regional investors and partners, highlighting the path to grid-independent clean power.</p></div></article>
-      <article data-cat="company"><img src="img/sparkAccelerator.png" alt="Spark Cleantech Accelerator logo" style="object-fit:contain;background:#fff;padding:12px"><div><div class="meta"><span class="cat">Company</span><span>August 5, 2025</span><span>2 min read</span></div><h3><a href="https://www.aluminairy.com/news/spark-accelerator">AluminAiry joins the Spark Cleantech Accelerator cohort</a></h3><p>Mentorship, lab space, and a network of clean-energy partners across the Tennessee Valley.</p></div></article>
+      <article data-cat="roi"><img src="img/hospitalPower.png" alt="Hospital emergency entrance at dusk"><div><div class="meta"><span class="cat">Savings &amp; ROI</span><span>April 15, 2026</span><span>9 min read</span></div><h3><a href="#post/aluminum-air-vs-diesel-total-cost-of-ownership">Total cost of ownership: aluminum-air backup power vs. diesel generators</a></h3><p>Diesel generators win on sticker price and lose on everything else. A total-cost-of-ownership framework for operations and finance leaders evaluating clean backup power.</p></div></article>
+      <article data-cat="tech"><img src="img/aluminairyTech.png" alt="Aluminum-air cell diagram"><div><div class="meta"><span class="cat">Technology</span><span>April 2, 2026</span><span>9 min read</span></div><h3><a href="#post/aluminum-air-battery-record-power-density-explained">How aluminum-air batteries reached record power density: the science of film tuning</a></h3><p>A 2026 peer-reviewed study pushed aluminum-air power density to a record 710 mW/cm² by managing the aluminum product layer. What changed, and why it matters for clean energy.</p></div></article>
+      <article data-cat="tech"><img src="img/aluminairyConcept.png" alt="AluminAiry generator concepts"><div><div class="meta"><span class="cat">Technology</span><span>March 18, 2026</span><span>8 min read</span></div><h3><a href="#post/aluminum-air-vs-lithium-ion-batteries-comparison">Aluminum-air vs. lithium-ion batteries: a practical comparison for 2026</a></h3><p>A grounded comparison of energy density, safety, cost, sourcing, and the trade-offs that decide which chemistry fits which job.</p></div></article>
+      <article data-cat="market"><img src="img/aluminairyProcess.png" alt="AluminAiry circular economy diagram" style="object-fit:contain;background:#fff;padding:8px"><div><div class="meta"><span class="cat">Market</span><span>February 25, 2026</span><span>7 min read</span></div><h3><a href="#post/aluminum-air-battery-market-outlook-2030">The aluminum-air battery market: growth outlook through 2030 and beyond</a></h3><p>Analyst estimates vary widely, but the direction is consistent: up. A clear-eyed look at the numbers, the drivers, and where the real opportunity sits.</p></div></article>
+      <article data-cat="roi"><img src="img/BackupPower.jpg" alt="Houses during a lightning storm at night"><div><div class="meta"><span class="cat">Savings &amp; ROI</span><span>February 10, 2026</span><span>8 min read</span></div><h3><a href="#post/aluminum-air-backup-power-roi-savings">The ROI of aluminum-air backup power: how recycled aluminum becomes savings</a></h3><p>Backup power is usually a sunk cost. Aluminum-air reframes it as an investment. Here is how the ROI math works.</p></div></article>
+      <article data-cat="sustain"><img src="img/aluminairyRecycling.jpg" alt="Crushed aluminum cans"><div><div class="meta"><span class="cat">Sustainability</span><span>January 28, 2026</span><span>6 min read</span></div><h3><a href="#post/recycling-aluminum-cans-into-clean-energy">From recycling bin to power source: how aluminum cans become clean energy</a></h3><p>Most aluminum cans still end up in landfills, taking their embedded energy with them. Aluminum-air offers a second life.</p></div></article>
+      <article data-cat="company"><img src="img/CIFAward.jpg" alt="AluminAiry team at the Chancellor's Innovation Fund award ceremony"><div><div class="meta"><span class="cat">Company</span><span>November 12, 2025</span><span>2 min read</span></div><h3><a href="#post/aluminairy-wins-cif-award">AluminAiry wins the Chancellor's Innovation Fund award</a></h3><p>Recognized for breakthrough work in aluminum-air energy generation, securing new funding to scale our circular energy platform.</p></div></article>
+      <article data-cat="company"><img src="img/TeknovationImage.png" alt="Two AluminAiry founders in UT polo shirts"><div><div class="meta"><span class="cat">Company</span><span>September 28, 2025</span><span>2 min read</span></div><h3><a href="#post/teknovation-feature">AluminAiry featured at Teknovation showcase</a></h3><p>Our team presented the aluminum-air generator to regional investors and partners, highlighting the path to grid-independent clean power.</p></div></article>
+      <article data-cat="company"><img src="img/sparkAccelerator.png" alt="Spark Cleantech Accelerator logo" style="object-fit:contain;background:#fff;padding:12px"><div><div class="meta"><span class="cat">Company</span><span>August 5, 2025</span><span>2 min read</span></div><h3><a href="#post/spark-accelerator">AluminAiry joins the Spark Cleantech Accelerator cohort</a></h3><p>Mentorship, lab space, and a network of clean-energy partners across the Tennessee Valley.</p></div></article>
     </div>
     <p class="cite" id="newsEmpty" hidden style="padding:24px 0">No posts in this category yet.</p>
   </div>
@@ -1066,6 +1162,26 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <h2>Clean energy insights,<br>occasionally.</h2>
       <form class="f" id="subForm"><label>Email<input type="email" name="email" required placeholder="you@company.com"></label><div class="btns"><button class="btn" type="submit">Subscribe</button><span class="small">No spam. Unsubscribe any time.</span></div></form>
     </div>
+  </div>
+</section>
+
+<!-- ================= POST (article template, filled by JS) ================= -->
+<section class="page" id="post" hidden>
+  <div class="doc">
+    <article class="post">
+      <p class="small" style="padding-top:28px"><a class="link" href="#news">← All news</a></p>
+      <header class="post-h">
+        <div class="meta" id="postMeta"></div>
+        <h1 id="postTitle" class="post-title"></h1>
+      </header>
+      <figure class="fig r169 post-fig"><img id="postImg" src="" alt=""></figure>
+      <div class="post-body" id="postBody"></div>
+      <p class="post-by">Published by AluminAiry, Knoxville, Tennessee.</p>
+    </article>
+    <section class="s" style="margin-top:20px">
+      <div class="m"><span class="n">→</span><span class="t">Keep reading</span></div>
+      <div class="c"><div class="news" id="postRelated"></div></div>
+    </section>
   </div>
 </section>
 
@@ -1078,9 +1194,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
         <div class="intro">
           <p class="lead">Whether you're looking to invest, partner, recycle aluminum, or learn more about aluminum-air energy, we want to hear from you.</p>
           <div class="clist">
-            <div><span>Email</span><a href="mailto:bwashington@aluminairy.com">bwashington@aluminairy.com</a></div>
-            <div><span>Materials</span><a href="mailto:info@aluminairy.com">info@aluminairy.com</a></div>
-            <div><span>Phone</span><a href="tel:+12053944282">205-394-4282</a></div>
+            <div><span>Email</span><a href="mailto:info@aluminairy.com">info@aluminairy.com</a></div>
             <div><span>Office</span><span>Knoxville, Tennessee</span></div>
           </div>
         </div>
@@ -1128,7 +1242,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       </div>
       <div><h4>Company</h4><ul><li><a href="#mission">Mission</a></li><li><a href="#technology">Technology</a></li><li><a href="#solutions">Solutions</a></li><li><a href="#materials">Materials</a></li><li><a href="#investors">Investors</a></li><li><a href="#news">News</a></li></ul></div>
       <div><h4>Technology</h4><ul><li><a href="#technology/how-it-works">How it works</a></li><li><a href="#technology/applications">Applications</a></li><li><a href="#technology/recycle">Recycle with us</a></li></ul></div>
-      <div><h4>Connect</h4><ul><li><a href="#contact">Contact us</a></li><li><a href="#investors">Invest</a></li><li><a href="mailto:bwashington@aluminairy.com">bwashington@aluminairy.com</a></li><li><a href="tel:+12053944282">205-394-4282</a></li></ul></div>
+      <div><h4>Connect</h4><ul><li><a href="#contact">Contact us</a></li><li><a href="#investors">Invest</a></li><li><a href="mailto:info@aluminairy.com">info@aluminairy.com</a></li></ul></div>
     </div>
     <div class="base"><span>© 2026 AluminAiry. All rights reserved.</span><span>Aluminum-air battery technology · Clean energy · Circular economy</span></div>
   </div>
@@ -1148,10 +1262,12 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     var sub = parts[1];
     var found = pages.some(function(p){ return p.id === id; });
     if(!found){ id = 'home'; sub = null; }
+    if(id === 'post'){ if(!renderPost(sub)){ id = 'news'; } sub = null; }
+    else { document.title = 'AluminAiry'; }
     pages.forEach(function(p){ p.hidden = (p.id !== id); });
     links.forEach(function(a){
       var target = a.getAttribute('href').slice(1).split('/')[0];
-      if(target === id){ a.setAttribute('aria-current','page'); } else { a.removeAttribute('aria-current'); }
+      if(target === id || (id === 'post' && target === 'news')){ a.setAttribute('aria-current','page'); } else { a.removeAttribute('aria-current'); }
     });
     nav.classList.remove('open'); burger.setAttribute('aria-expanded','false');
     if(id === 'contact' && sub){
@@ -1165,6 +1281,26 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     }
     window.scrollTo(0,0);
   }
+
+  // ---- on-site articles ----
+  var POSTS = [{"slug": "aluminum-air-vs-diesel-total-cost-of-ownership", "cat": "roi", "catname": "Savings & ROI", "date": "April 15, 2026", "rt": "9 min read", "img": "hospitalPower.png", "alt": "Hospital emergency entrance at dusk", "title": "Total Cost of Ownership: Comparing Aluminum-Air Backup Power to Diesel Generators", "html": "<p>If you are responsible for keeping a facility running — a data center, a hospital, a manufacturing line, a telecom site — you already know the uncomfortable truth about backup power: the purchase price is the smallest part of the bill. Diesel generators are inexpensive to buy and expensive to own. This article lays out a total-cost-of-ownership (TCO) framework for comparing aluminum-air backup power against the diesel default, written for the operations and finance leaders who actually sign off on the decision.</p>\n<p class=\"cite\">This is an educational framework, not a quote. The right numbers for your site depend on your load profile, run hours, local energy and fuel prices, and compliance environment. Use this to structure the analysis, then plug in your own figures.</p>\n<h3>Why Sticker Price Is the Wrong Metric</h3>\n<p>Capital cost is easy to compare on a spreadsheet, which is exactly why it dominates backup-power decisions it shouldn't. The problem is that a generator's lifetime cost is driven by the lines that don't appear on the purchase order: fuel, maintenance, downtime risk, compliance, and insurance. A rigorous evaluation reframes the question from \"what does it cost to buy?\" to \"what does it cost to own and operate for the next five to ten years?\"</p>\n<h3>The Five Cost Buckets That Actually Matter</h3>\n<h4>1. Fuel</h4>\n<p>Diesel is a commodity, and commodities are volatile. Fuel prices swing with global markets, and for a generator that runs regularly, fuel is often the single largest lifetime cost. Aluminum-air changes the input entirely: the fuel is aluminum — the most abundant metal in the Earth's crust, at roughly 8% by mass — sourced through a mature recycling supply chain. A fuel basis built on recycled aluminum is structurally more stable than one tied to diesel spot prices, and it removes exposure to fuel-price surges during exactly the emergencies when you need the system most.</p>\n<h4>2. Maintenance</h4>\n<p>Combustion hardware is maintenance-hungry: oil, filters, coolant, exhaust after-treatment, and scheduled test runs all add up over a generator's life. An aluminum-air system has no combustion and far fewer moving parts, which structurally lowers the maintenance burden. Refueling is mechanical — swapping aluminum plates — rather than a fuel-delivery-and-storage operation.</p>\n<h4>3. Downtime Risk</h4>\n<p>For many facilities, this is the cost that dwarfs all others. An hour of downtime at a data center, hospital, or manufacturing line can run from tens of thousands to hundreds of thousands of dollars. The value of backup power is not the hardware; it is the downtime it prevents. When you quantify TCO, multiply your own hourly downtime cost by the reliability improvement — that number frequently overwhelms every other line in the comparison.</p>\n<h4>4. Safety, Siting, and Insurance</h4>\n<p>Flammable fuel is a liability in the literal, actuarial sense. Diesel and lithium-ion both carry fire risk that translates into siting restrictions, fire-suppression requirements, and insurance premiums. Aluminum-air uses a water-based, non-flammable electrolyte, which sidesteps that entire risk category. For hospitals, data centers, and occupied buildings, removing a fire-risk fuel source is both a safety win and a quantifiable cost avoidance.</p>\n<h4>5. Compliance and Emissions</h4>\n<p>Diesel generators bring air-quality permitting, emissions reporting, and growing exposure to carbon pricing. An aluminum-air system produces zero emissions during operation, which can simplify permitting and remove a category of future regulatory liability. As carbon costs move from voluntary to mandatory in more jurisdictions, a zero-emission backup asset shifts from \"nice to have\" to \"risk hedge.\"</p>\n<h3>A Simple TCO Worksheet</h3>\n<p>When you build the comparison, add up the full picture for each option over a five-to-ten-year horizon:</p>\n<ul>\n<li>Upfront hardware and installation</li>\n<li>Lifetime fuel cost — and, critically, its volatility</li>\n<li>Maintenance, testing, and consumables</li>\n<li>Expected downtime cost (hourly cost × exposure)</li>\n<li>Safety, siting, fire-suppression, and insurance</li>\n<li>Compliance, permitting, and carbon exposure</li>\n<li>End-of-life value — where aluminum's recyclability and sellable byproduct create residual worth</li>\n</ul>\n<p>Diesel tends to win line one and lose the rest. The exercise is not about a single magic number; it is about making the invisible lines visible, because those are the ones that dominate the total.</p>\n<h3>The Circular-Economy Line Item</h3>\n<p>There is one lever unique to this chemistry that has no diesel equivalent. The aluminum byproduct generated during operation — aluminum trihydroxide, or ATH — can be recovered and sold to secondary markets. In a well-designed program, a portion of the \"waste\" becomes a recovered-value stream, further improving the lifetime economics. Diesel exhaust, by contrast, is pure cost.</p>\n<h3>Does the Technology Actually Deliver the Power?</h3>\n<p>A TCO argument is academic if the system can't carry the load. Historically, aluminum-air's weak point was power output — it stored enormous energy but delivered it slowly. That limitation is closing fast. Peer-reviewed research in 2026 demonstrated a record peak power density of 710 mW/cm² for the chemistry, with strong sustained output in extended discharge testing. Higher power density means a given system footprint can serve more demanding loads, which directly improves the value you capture per dollar of installed hardware.</p>\n<p>The best backup power isn't the cheapest box on the loading dock. It's the lowest total cost over its life — measured in fuel stability, avoided downtime, reduced risk, and recoverable materials.</p>\n<h3>How to Run the Evaluation</h3>\n<p>If you are a systematic evaluator — and the best operations and finance leaders are — the path is straightforward. Establish your baseline (current fuel, maintenance, and downtime costs), model the five-to-ten-year TCO for each option honestly, and pressure-test the assumptions. Where a claim depends on your specific site, ask for the source and the sensitivity. That is exactly the conversation we want to have.</p>\n<p>Want to pressure-test these numbers against your actual load profile and site? Contact our team to walk through a site-specific TCO analysis.</p>\n<h3>References &amp; Sources</h3>\n<ul>\n<li>Fuel-price and generator operating-cost figures reflect widely reported industry ranges and vary by region, load, and duty cycle; treat them as directional, not site-specific.</li>\n<li>Technical performance figures: Griffith, C. R. et al., ECS Advances, 2026, 5, 010504. DOI: 10.1149/2754-2734/ae53fb (CC BY 4.0).</li>\n</ul>"}, {"slug": "aluminum-air-battery-record-power-density-explained", "cat": "tech", "catname": "Technology", "date": "April 2, 2026", "rt": "9 min read", "img": "aluminairyTech.png", "alt": "Aluminum-air cell diagram", "title": "How Aluminum-Air Batteries Reached Record Power Density: The Science of Film Tuning", "html": "<p>Aluminum-air batteries have long been celebrated for one headline number: an enormous theoretical energy density of roughly 8,100 Wh per kilogram of aluminum, rivaling gasoline and dwarfing lithium-ion. Yet for decades the chemistry carried a quiet asterisk. It could store a lot of energy, but it struggled to deliver that energy quickly. High power output, the ability to push large currents on demand, remained the technology's stubborn bottleneck.</p>\n<p>A 2026 peer-reviewed study from researchers at the University of Tennessee, Knoxville and Oak Ridge National Laboratory changed that calculus. By systematically tuning how the aluminum surface behaves during discharge, the team demonstrated a peak power density of 710 mW/cm² — to their knowledge the highest ever reported for an aluminum-air battery when measured against the surface area of the aluminum anode itself. This article breaks down how they did it and why the result matters for anyone building real-world clean-energy systems.</p>\n<h3>The Real Bottleneck: A Passivation Film You Can't See</h3>\n<p>When an aluminum-air battery discharges, aluminum at the anode reacts with hydroxide ions to release electrons — the useful current. But that same reaction produces aluminum hydroxide, an insoluble solid that aggregates into a porous layer right at the metal surface. Researchers call this a secondary passivation layer. It sits on top of the fresh aluminum and physically impedes the electrolyte from reaching active sites.</p>\n<p>At low current, this film barely matters. At high current — exactly where you need power — it becomes the dominant source of loss. The study is direct on this point: at high rates of discharge, cell performance is largely dictated by ohmic losses at the anode associated with the aluminum product layer. In plain terms, the battery chokes on its own byproduct.</p>\n<h3>The Fix: Turn the Film Over Faster</h3>\n<p>The insoluble hydroxide film is not permanent. It can be converted into a soluble aluminate ion and washed away, continuously exposing fresh metal. The rate of this dissolution turns out to be the single most important lever for high-power performance. The researchers approached it from three complementary directions.</p>\n<h4>1. Higher alkalinity (electrolyte concentration)</h4>\n<p>Increasing potassium hydroxide (KOH) concentration accelerates the breakdown of the passivation film. The team found that 6 M and 8 M KOH performed similarly, so they selected 6 M as the optimum — achieving the benefit while using less material.</p>\n<h4>2. Higher temperature</h4>\n<p>Warming the electrolyte to 70 °C sharply improved both reaction kinetics and transport. Impedance at high temperature dropped by more than an order of magnitude compared with room temperature. Above 70 °C, corrosion began to dominate — so 70 °C emerged as the practical sweet spot.</p>\n<h4>3. A tin-depositing corrosion inhibitor</h4>\n<p>Adding sodium stannate (Na₂SnO₃) to the electrolyte deposits a thin layer of tin onto the aluminum. Tin suppresses the wasteful hydrogen-evolution side reaction and, importantly, interrupts the buildup of the resistive hydroxide film. The team identified a \"critical tin deposition\" threshold and settled on 0.1 M as the representative concentration.</p>\n<h4>4. Faster electrolyte flow</h4>\n<p>Finally, circulating the electrolyte faster (30 mL/min in their full cell) uses shear to sweep reaction products off the surface. This mattered most at the highest discharge rates and over longer discharge periods, where product buildup would otherwise strangle performance.</p>\n<h3>The Result: A New Benchmark</h3>\n<p>Stacked together, these changes took a baseline cell running at just 64 mW/cm² to a peak of 710 mW/cm² in polarization testing, with 680 mW/cm² sustained in extended discharge. For comparison, the study notes the previous best reported on a comparable aluminum-area basis was 381 mW/cm². Crucially, the team also preserved strong energy density — around 2,500 Wh/kg of aluminum at a 500 mA/cm² discharge rate — so the power gains did not come at the expense of the chemistry's core advantage.</p>\n<p>This investigation emphasizes the greater relevance of film impedance compared with reaction selectivity when operating at high aluminum overpotentials — the surface layer, not the chemistry itself, is the frontier.</p>\n<h3>Why This Matters Beyond the Lab</h3>\n<p>Power density decides which applications a battery can actually serve. A high-energy, low-power system is fine for a trickle load, but backup generators, electric aircraft, and grid-support hardware all demand bursts of current. By showing that careful management of the aluminum product layer unlocks record power without sacrificing energy density, this work moves aluminum-air from an interesting lab curiosity toward a genuinely deployable power source.</p>\n<p>At AluminAiry, this film-management principle is central to how we design real systems: control the surface, control the power. It is the difference between a chemistry that looks good on paper and one that keeps the lights on.</p>\n<p>Curious how this translates into a product for your home, facility, or fleet? Explore our technology or get in touch to discuss a pilot.</p>\n<h3>References &amp; Sources</h3>\n<ul>\n<li>Griffith, C. R. et al. \"Drastically Improving Aluminum-Air Battery Power Output via Aluminum Film Tuning.\" ECS Advances, 2026, 5, 010504. DOI: 10.1149/2754-2734/ae53fb (CC BY 4.0).</li>\n</ul>"}, {"slug": "aluminum-air-vs-lithium-ion-batteries-comparison", "cat": "tech", "catname": "Technology", "date": "March 18, 2026", "rt": "8 min read", "img": "aluminairyConcept.png", "alt": "AluminAiry generator concepts", "title": "Aluminum-Air vs Lithium-Ion Batteries: A Practical Comparison for 2026", "html": "<p>Lithium-ion is the default answer to almost every energy-storage question in 2026 — and for good reason. It is mature, rechargeable, and mass-produced. But \"default\" is not the same as \"best for every job.\" Aluminum-air is a fundamentally different chemistry with a different set of strengths, and understanding the trade-offs helps you match the right technology to the right application.</p>\n<h3>Energy Density: Aluminum-Air's Standout Advantage</h3>\n<p>On paper, aluminum-air is in a class of its own. Its theoretical energy density is roughly 8,100 Wh per kilogram of aluminum — because it pulls its oxidizer (oxygen) straight from ambient air rather than carrying it inside the cell. Lithium-ion, by contrast, must carry all of its active materials on board, which caps practical energy density far lower.</p>\n<p>Real cells never hit theoretical numbers, but the gap is meaningful. Recent peer-reviewed work demonstrated around 2,500 Wh/kg on an aluminum basis in a working cell. That headroom is exactly why aluminum-air is so attractive for weight-sensitive, long-duration applications.</p>\n<h3>Safety: Water-Based vs Flammable</h3>\n<p>This is where the two chemistries diverge sharply. Aluminum-air systems typically use a water-based alkaline electrolyte — non-flammable by nature. Lithium-ion uses flammable organic electrolytes and is susceptible to thermal runaway, the chain reaction behind battery fires. For applications in homes, hospitals, aircraft, and confined spaces, a non-flammable chemistry is not a minor footnote; it is a core design advantage.</p>\n<h3>Sourcing and Sustainability</h3>\n<p>Aluminum is the most abundant metal in the Earth's crust — about 8% by mass — and flows through a mature, global recycling supply chain. Lithium-ion depends on lithium, cobalt, and nickel, which face concentrated supply, geopolitical constraints, and significant extraction impacts. An aluminum-air system can even run on post-consumer aluminum, turning waste into fuel.</p>\n<h3>The Honest Trade-Offs</h3>\n<p>Aluminum-air is not a drop-in lithium replacement, and pretending otherwise does the technology a disservice. Two real limitations stand out:</p>\n<ul>\n<li>Recharging: An aqueous aluminum-air cell is a primary battery — it is \"refueled\" by physically swapping aluminum plates rather than plugged in to recharge. That is a feature for some uses (instant refuel, no charging downtime) and a constraint for others.</li>\n<li>Power output: Historically, aluminum-air delivered energy slowly. That was the central weakness — though 2026 research pushing peak power density to a record 710 mW/cm² shows the gap is closing fast.</li>\n</ul>\n<h3>Which One Wins? It Depends on the Job</h3>\n<p>Lithium-ion remains the right pick for daily-cycled, rechargeable applications like phones, laptops, and most EVs today. Aluminum-air excels where energy density, safety, long shelf life, and grid independence matter most: backup and emergency power, off-grid and remote sites, defense, and emerging electric-aviation use cases.</p>\n<p>The most useful way to think about it: lithium-ion is a rechargeable reservoir; aluminum-air is a clean, swappable fuel. Different tools, different jobs.</p>\n<p>At AluminAiry, we build around aluminum-air's genuine strengths rather than forcing it to imitate lithium. The result is a clean, non-flammable, grid-independent power source designed for the jobs lithium was never ideal for.</p>\n<p>Want to know whether aluminum-air fits your use case? See our technology page or reach out for a straight answer.</p>\n<h3>References &amp; Sources</h3>\n<ul>\n<li>Griffith, C. R. et al. ECS Advances, 2026, 5, 010504. DOI: 10.1149/2754-2734/ae53fb (CC BY 4.0).</li>\n</ul>"}, {"slug": "aluminum-air-battery-market-outlook-2030", "cat": "market", "catname": "Market", "date": "February 25, 2026", "rt": "7 min read", "img": "Science.jpg", "alt": "Laboratory flask", "title": "The Aluminum-Air Battery Market: Growth Outlook Through 2030 and Beyond", "html": "<p>The aluminum-air battery market is at an inflection point. Depending on which analyst you read, the market is either a large, slow-growing incumbent category or a small, fast-emerging one — and both framings are partly right. This piece cuts through the noise to explain what the numbers actually say and what is driving them.</p>\n<h3>What the Forecasts Say (and Why They Disagree)</h3>\n<p>Published market estimates diverge because analysts draw the category boundary differently — some fold in adjacent metal-air and primary-battery segments, others count only pure aluminum-air deployments.</p>\n<ul>\n<li>Broader-definition reports value the market in the range of roughly $10–12 billion around 2023–2024, projected toward $13–18 billion by 2030 at single-digit CAGRs (about 4–6%).</li>\n<li>Narrower, emerging-segment reports place the 2024 market closer to $1.2–2 billion, but project much faster growth — CAGRs around 14–18% into the early 2030s.</li>\n</ul>\n<p>The through-line across every source is the same: growth, driven by electric mobility, grid storage, and defense demand. The disagreement is about size and speed, not direction.</p>\n<h3>The Demand Drivers</h3>\n<h4>Electric vehicles and aviation</h4>\n<p>EV adoption is the most-cited growth driver across analyst reports. Aluminum-air's exceptional energy density makes it especially interesting for range-extension and for electric aircraft, where every kilogram of battery weight is scrutinized.</p>\n<h4>Grid and stationary storage</h4>\n<p>As solar and wind scale, the grid needs storage that is safe, long-duration, and free of critical-mineral supply risk. Non-flammable, aluminum-based systems are a natural fit for this fast-growing segment.</p>\n<h4>Defense and critical infrastructure</h4>\n<p>The military segment has historically led aluminum-air demand thanks to the chemistry's long shelf life, high energy density, and ability to operate in harsh conditions — valuable for communications gear, unmanned systems, and emergency power.</p>\n<h3>The Technology Tailwind</h3>\n<p>Markets follow capability. The historical knock on aluminum-air was weak power output — but 2026 peer-reviewed research demonstrating a record 710 mW/cm² peak power density directly attacks that limitation. As power performance improves, the range of commercially viable applications widens, which is precisely the kind of shift that turns conservative forecasts into optimistic ones.</p>\n<h3>Where the Opportunity Sits</h3>\n<p>The largest near-term openings are in applications that value aluminum-air's intrinsic advantages rather than competing head-on with rechargeable lithium: backup and emergency power, off-grid and remote deployments, defense, and a circular-economy angle that turns recycled aluminum into fuel. That last point is central to AluminAiry's model — and it converts a waste-management cost into an energy asset.</p>\n<p>The market question is not whether aluminum-air grows, but which applications adopt it first. The answer follows the technology's strengths: safety, sourcing, and energy density.</p>\n<p>Interested in the investment case behind these numbers? Visit our investors page or contact our team.</p>\n<h3>References &amp; Sources</h3>\n<ul>\n<li>Market ranges compiled from public analyst reports (Next Move Strategy Consulting, Stratistics MRC, Zion Market Research, Market Research Future, Verified Market Reports), 2023–2026. Figures vary by category definition.</li>\n<li>Power-density figure: Griffith, C. R. et al. ECS Advances, 2026, 5, 010504.</li>\n</ul>"}, {"slug": "aluminum-air-backup-power-roi-savings", "cat": "roi", "catname": "Savings & ROI", "date": "February 10, 2026", "rt": "8 min read", "img": "BackupPower.jpg", "alt": "Houses during a lightning storm at night", "title": "The ROI of Aluminum-Air Backup Power: How Recycled Aluminum Becomes Savings", "html": "<p>Most backup-power decisions are made under duress — after an outage, a storm, or a compliance deadline — and evaluated purely as a cost to be minimized. Aluminum-air invites a different framing. Because its fuel is abundant, recyclable aluminum rather than diesel or scarce critical minerals, the total cost of ownership picture looks structurally different. Let us walk through where the savings actually come from.</p>\n<p class=\"cite\">Note: This article explains the general economics of the technology. It is educational, not a financial guarantee — real ROI depends on your load profile, local energy prices, and configuration.</p>\n<h3>1. Fuel Cost: Abundant and Recyclable</h3>\n<p>Diesel generators are cheap to buy and expensive to feed, with fuel costs that swing with volatile commodity markets. Aluminum-air runs on a fuel that is the most abundant metal in the Earth's crust — about 8% of it by mass — and flows through a mature recycling supply chain. Systems can even be fueled with post-consumer aluminum, which means the same material a facility might pay to dispose of can instead be converted into power.</p>\n<h3>2. Maintenance and Downtime</h3>\n<p>Combustion generators carry ongoing maintenance burdens: oil changes, filters, exhaust systems, and periodic test runs. Aluminum-air has no combustion and far fewer moving parts. Refueling is mechanical — swapping aluminum plates — which means effectively zero charging downtime, unlike rechargeable systems that are unavailable while they recharge.</p>\n<h3>3. Safety and Insurance Exposure</h3>\n<p>Lithium-ion's flammable electrolyte introduces thermal-runaway fire risk, which carries real costs: siting restrictions, fire-suppression requirements, and insurance premiums. Aluminum-air's water-based, non-flammable electrolyte sidesteps that entire risk category — a genuine, if often overlooked, line item in total cost of ownership, especially for hospitals, data centers, and residential installations.</p>\n<h3>4. Performance That Now Covers More Loads</h3>\n<p>ROI only materializes if the system can actually carry your load. This is where recent progress matters: 2026 peer-reviewed research pushed aluminum-air peak power density to a record 710 mW/cm², with strong sustained output in extended discharge. Higher power means a given system can serve more demanding loads, improving the value you get per unit of installed hardware.</p>\n<h3>A Simple Way to Think About Total Cost of Ownership</h3>\n<p>When comparing options, look past the sticker price and add up the full lifetime picture:</p>\n<ul>\n<li>Upfront hardware cost</li>\n<li>Lifetime fuel cost (and its volatility) — where recycled aluminum can dramatically lower the ongoing spend</li>\n<li>Maintenance, testing, and downtime</li>\n<li>Safety, siting, and insurance costs</li>\n<li>End-of-life and disposal — where aluminum's recyclability and sellable byproducts create residual value</li>\n</ul>\n<p>Diesel often wins on line one and loses on the rest. Lithium-ion carries safety and sourcing costs. Aluminum-air is designed to win on the long-run lines — the ones that quietly dominate total cost over a system's life.</p>\n<h3>The Circular-Economy Bonus</h3>\n<p>There is one more lever unique to this chemistry. The aluminum byproduct generated during operation (aluminum trihydroxide, or ATH) can be recovered and sold to secondary markets. In a well-designed system, the \"waste\" becomes a second revenue stream — the essence of a circular energy economy.</p>\n<p>The best backup power isn't just a cost you hope never to use. It's an asset that pays back through cheaper fuel, lower risk, and recoverable materials.</p>\n<p>Want a realistic ROI estimate for your site or fleet? Contact us to talk through your load profile and configuration.</p>\n<h3>References &amp; Sources</h3>\n<ul>\n<li>Technical performance figures: Griffith, C. R. et al. ECS Advances, 2026, 5, 010504. DOI: 10.1149/2754-2734/ae53fb (CC BY 4.0).</li>\n</ul>"}, {"slug": "recycling-aluminum-cans-into-clean-energy", "cat": "sustain", "catname": "Sustainability", "date": "January 28, 2026", "rt": "6 min read", "img": "aluminairyRecycling.jpg", "alt": "Crushed aluminum cans", "title": "From Recycling Bin to Power Source: How Aluminum Cans Become Clean Energy", "html": "<p>Aluminum is one of the most recyclable materials on Earth, yet a large share of aluminum cans still end up buried in landfills. Every one of those cans carries embedded energy — energy that is simply lost when the can is thrown away. Aluminum-air technology offers a compelling alternative: use that aluminum as fuel for clean, uninterrupted power.</p>\n<h3>The Hidden Energy in a Landfill</h3>\n<p>Aluminum is the most abundant metal in the Earth's crust, but refining it from raw ore is energy-intensive. That is exactly why recycling is so valuable — it recaptures most of that invested energy. When aluminum is landfilled instead, that value is discarded. AluminAiry's premise is simple: intercept that aluminum before it is wasted and convert it directly into electricity.</p>\n<h3>How the Conversion Works</h3>\n<p>The process is elegantly direct. Inside an aluminum-air system, aluminum reacts with oxygen from ambient air through a water-based electrolyte. That reaction releases electrons — usable electricity — with no combustion and no carbon emissions during operation.</p>\n<ul>\n<li>Collect: Post-consumer cans and manufacturing scrap are gathered and prepared as aluminum plate fuel.</li>\n<li>Convert: The aluminum reacts electrochemically with oxygen from the air, generating current.</li>\n<li>Generate: Clean electricity is produced on-site — no grid connection required.</li>\n<li>Recover: The aluminum byproduct (ATH) is collected and sold to secondary markets, closing the loop.</li>\n</ul>\n<h3>Why This Is a True Circular Economy</h3>\n<p>A circular economy keeps materials in productive use instead of sending them to a landfill. Aluminum-air fits this model almost perfectly: the fuel comes from recycled material, the operation produces no operational carbon emissions, and even the byproduct has downstream value. Nothing is designed to be thrown away.</p>\n<h3>Better Fuel, Better Power</h3>\n<p>Recycled aluminum is not a compromise fuel — it is a high-performance one. Peer-reviewed research in 2026 demonstrated record power density for the chemistry (710 mW/cm² peak), showing that aluminum sourced through recycling can drive serious, practical power output. Sustainability and performance are not at odds here; they reinforce each other.</p>\n<p>A can that would have sat in a landfill for centuries can instead help power a home, a hospital, or a remote community. That is the circular energy economy in one sentence.</p>\n<h3>Be Part of the Loop</h3>\n<p>The vision only scales with participation — from individuals, recyclers, manufacturers, and municipalities who see aluminum waste as the energy asset it truly is. Every pound of aluminum recycled into this loop is clean power that would otherwise have been lost.</p>\n<p>Ready to turn aluminum into energy with us? Learn how to recycle with AluminAiry or get in touch.</p>\n<h3>References &amp; Sources</h3>\n<ul>\n<li>Power-density figure: Griffith, C. R. et al. ECS Advances, 2026, 5, 010504. DOI: 10.1149/2754-2734/ae53fb (CC BY 4.0).</li>\n</ul>"}, {"slug": "aluminairy-wins-cif-award", "cat": "company", "catname": "Company", "date": "November 12, 2025", "rt": "2 min read", "img": "CIFAward.jpg", "alt": "AluminAiry team at the Chancellor's Innovation Fund award ceremony", "title": "AluminAiry wins the Chancellor's Innovation Fund award", "html": "<p>AluminAiry has been awarded the University of Tennessee Chancellor's Innovation Fund award for our breakthrough work in aluminum-air energy generation. The award recognizes startups advancing the circular energy economy and provides new funding to scale our platform.</p>\n<p>The recognition validates years of research into converting post-consumer aluminum into reliable, zero-emission power. With this support, we are accelerating pilot deployments across residential and critical-infrastructure applications.</p>"}, {"slug": "teknovation-feature", "cat": "company", "catname": "Company", "date": "September 28, 2025", "rt": "2 min read", "img": "TeknovationImage.png", "alt": "Two AluminAiry founders in UT polo shirts", "title": "AluminAiry Featured at Teknovation Showcase", "html": "<p>Our team presented the AluminAiry aluminum-air generator at the Teknovation showcase, demonstrating how recycled aluminum can deliver grid-independent clean power.</p>\n<p>Attendees explored the mechanical refueling system and learned how our technology produces uninterrupted energy without emissions, lithium, or grid dependence.</p>"}, {"slug": "spark-accelerator", "cat": "company", "catname": "Company", "date": "August 5, 2025", "rt": "2 min read", "img": "sparkAccelerator.png", "alt": "Spark Cleantech Accelerator logo", "title": "AluminAiry Joins the Spark Accelerator Cohort", "html": "<p>AluminAiry has joined the Spark Accelerator cohort, gaining access to mentorship, lab space, and a network of clean-energy partners.</p>\n<p>The program supports our mission to turn overlooked aluminum waste into uninterrupted clean energy, helping us refine our technology and expand our circular-economy partnerships.</p>"}];
+  function renderPost(slug){
+    var p = null; for(var i=0;i<POSTS.length;i++){ if(POSTS[i].slug===slug) p = POSTS[i]; }
+    if(!p) return false;
+    document.getElementById('postMeta').innerHTML = '<span class="cat">'+p.catname+'</span><span>'+p.date+'</span><span>'+p.rt+'</span>';
+    document.getElementById('postTitle').textContent = p.title;
+    var im = document.getElementById('postImg'); im.src = 'img/'+p.img; im.alt = p.alt;
+    im.style.objectFit = /sparkAccelerator|aluminairyConcept|aluminairyTech/.test(p.img) ? 'contain' : 'cover';
+    im.style.background = '#fff';
+    document.getElementById('postBody').innerHTML = p.html;
+    document.title = p.title + ' · AluminAiry';
+    var rel = POSTS.filter(function(q){ return q.slug!==slug; }).sort(function(a,b){ return (b.cat===p.cat) - (a.cat===p.cat); }).slice(0,3);
+    document.getElementById('postRelated').innerHTML = rel.map(function(q){
+      return '<article><img src="img/'+q.img+'" alt="'+q.alt.replace(/"/g,'&quot;')+'"'+(/sparkAccelerator|aluminairyConcept|aluminairyTech/.test(q.img)?' style="object-fit:contain;background:#fff;padding:8px"':'')+'><div><div class="meta"><span class="cat">'+q.catname+'</span><span>'+q.date+'</span></div><h3><a href="#post/'+q.slug+'">'+q.title+'</a></h3></div></article>';
+    }).join('');
+    return true;
+  }
+
   window.addEventListener('hashchange', route);
   route();
 
@@ -1195,7 +1331,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   if(cf) cf.addEventListener('submit', function(e){
     e.preventDefault();
     var d = new FormData(cf);
-    mailto('bwashington@aluminairy.com', '[aluminairy.com] ' + d.get('subject'),
+    mailto('info@aluminairy.com', '[aluminairy.com] ' + d.get('subject'),
       d.get('message') + '\n\n— ' + d.get('name') + ' <' + d.get('email') + '>');
   });
   var rf = document.getElementById('recycleForm');
@@ -1206,7 +1342,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
     var body = 'Recycling request\n\nName: ' + d.get('name') + '\nEmail: ' + d.get('email') +
       '\nAddress: ' + [d.get('street'), d.get('city'), d.get('state'), d.get('zip'), d.get('country')].filter(Boolean).join(', ') +
       '\nMaterial: ' + types + '\nQuantity (lbs): ' + (d.get('qty') || 'Not specified');
-    mailto('bwashington@aluminairy.com', '[aluminairy.com] Recycling request', body);
+    mailto('info@aluminairy.com', '[aluminairy.com] Recycling request', body);
   });
   var sf = document.getElementById('subForm');
   if(sf) sf.addEventListener('submit', function(e){
