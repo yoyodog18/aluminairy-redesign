@@ -731,7 +731,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <div class="row">
         <div class="intro">
           <p class="lead">Non-flammable, grid-independent power for the operations that cannot afford to go dark. Built for real-world resilience, not a spec sheet.</p>
-          <div class="btns"><a class="btn" href="#contact/tco">Request a TCO analysis</a></div>
+          <div class="btns"><a class="btn" href="mailto:info@aluminairy.com?subject=Backup%20power%20TCO%20analysis">Request a TCO analysis</a></div>
         </div>
         <figure class="fig r43 duo">
           <img src="img/hospitalPower.png" alt="Hospital emergency entrance lit at dusk">
@@ -792,7 +792,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <h2>See the numbers<br>for your site.</h2>
       <div style="display:grid;gap:22px">
         <p class="prose">Every site is different. We will build a total-cost-of-ownership comparison from your load profile, run hours, and current backup source.</p>
-        <div class="btns"><a class="btn" href="#contact/tco">Request a TCO analysis</a></div>
+        <div class="btns"><a class="btn" href="mailto:info@aluminairy.com?subject=Backup%20power%20TCO%20analysis">Request a TCO analysis</a></div>
       </div>
     </div>
   </div>
@@ -806,7 +806,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <div class="row">
         <div class="intro">
           <p class="lead">Gas diffusion electrodes, catalyst-coated membranes, and catalysts for fuel cells, metal-air batteries, and flow batteries. Small-batch and pilot-scale, made in the United States, delivered faster and cheaper than large-scale manufacturers.</p>
-          <div class="btns"><a class="btn" href="#contact/quote">Get a quote</a><a class="link" href="mailto:info@aluminairy.com">info@aluminairy.com</a></div>
+          <div class="btns"><a class="btn" href="mailto:info@aluminairy.com?subject=Energy%20materials%20quote">Get a quote</a><a class="link" href="mailto:info@aluminairy.com">info@aluminairy.com</a></div>
         </div>
         <figure class="fig r43">
           <img src="img/EnergyMaterialsPageBanner.jpg" alt="Black gas diffusion layer carbon paper sheets and a cut disc on a blue surface">
@@ -984,7 +984,7 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       <div class="row">
         <div class="intro">
           <p class="lead">Our technology serves a $2 billion dual-use backup-power market: rural homes across the Southeast and U.S. forward operating bases worldwide. We are building the generators, the fuel supply, and the materials business underneath it.</p>
-          <div class="btns"><a class="btn" href="#contact/invest">Invest with us</a></div>
+          <div class="btns"><a class="btn" href="mailto:info@aluminairy.com?subject=Investment%20opportunity">Invest with us</a></div>
         </div>
         <figure class="fig r43 duo">
           <img src="img/CIFAward.jpg" alt="AluminAiry team holding awards at the Chancellor's Innovation Fund ceremony">
@@ -1207,25 +1207,11 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   </div>
   <div class="doc">
     <section class="s">
-      <div class="m"><span class="n">01</span><span class="t">Send a message</span><span class="sub">Opens a pre-filled email. Nothing is stored here.</span></div>
+      <div class="m"><span class="n">01</span><span class="t">Send a message</span><span class="sub">We reply to every inquiry.</span></div>
       <div class="c">
-        <form class="f" id="contactForm" style="max-width:720px">
-          <div class="row">
-            <label>Your name<input name="name" required></label>
-            <label>Email address<input name="email" type="email" required></label>
-          </div>
-          <label>Subject<select name="subject" id="subjectSel">
-            <option value="General Inquiry">General inquiry</option>
-            <option value="Investment Opportunity">Investment opportunity</option>
-            <option value="Partnership / R&D">Partnership / R&amp;D</option>
-            <option value="Aluminum Recycling">Aluminum recycling</option>
-            <option value="TCO Analysis Request">Backup power TCO analysis</option>
-            <option value="Energy Materials Quote">Energy materials quote</option>
-            <option value="Media / Press">Media / press</option>
-          </select></label>
-          <label>Message<textarea name="message" required></textarea></label>
-          <div class="btns"><button class="btn" type="submit">Send message</button></div>
-        </form>
+        <h2>Email us at <a class="link" href="mailto:info@aluminairy.com">info@aluminairy.com</a></h2>
+        <p class="prose">Tell us who you are and what you're after. Investment, partnership or R&amp;D, aluminum recycling, a backup-power cost analysis, an energy-materials quote, or press.</p>
+        <div class="btns"><a class="btn" href="mailto:info@aluminairy.com?subject=Inquiry%20from%20aluminairy.com">Send an email</a></div>
       </div>
     </section>
   </div>
@@ -1270,11 +1256,6 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
       if(target === id || (id === 'post' && target === 'news')){ a.setAttribute('aria-current','page'); } else { a.removeAttribute('aria-current'); }
     });
     nav.classList.remove('open'); burger.setAttribute('aria-expanded','false');
-    if(id === 'contact' && sub){
-      var sel = document.getElementById('subjectSel');
-      var map = {tco:'TCO Analysis Request', quote:'Energy Materials Quote', invest:'Investment Opportunity', recycle:'Aluminum Recycling'};
-      if(sel && map[sub]) sel.value = map[sub];
-    }
     if(sub){
       var el = document.getElementById(sub);
       if(el){ el.scrollIntoView({block:'start'}); return; }
@@ -1327,13 +1308,6 @@ footer .base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
   function mailto(to, subject, body){
     location.href = 'mailto:' + to + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   }
-  var cf = document.getElementById('contactForm');
-  if(cf) cf.addEventListener('submit', function(e){
-    e.preventDefault();
-    var d = new FormData(cf);
-    mailto('info@aluminairy.com', '[aluminairy.com] ' + d.get('subject'),
-      d.get('message') + '\n\n— ' + d.get('name') + ' <' + d.get('email') + '>');
-  });
   var rf = document.getElementById('recycleForm');
   if(rf) rf.addEventListener('submit', function(e){
     e.preventDefault();
